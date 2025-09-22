@@ -1,0 +1,358 @@
+.page-delivery {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 1;
+}
+
+.container1 {
+    margin-bottom: 28px;
+}
+
+.first-block {
+    margin-bottom: 50px;
+}
+
+.mobile_image {
+    display: none;
+}
+
+.third-block {
+    margin-bottom: 48px;
+
+    .block {
+        height: unset;
+    }
+}
+
+.mobile-image {
+    display: none;
+}
+
+.block {
+    height: 100%;
+    border-radius: 9px;
+    background: #F3F7FA;
+    padding: 24px 80px 24px 28px;
+
+    p {
+        color: #000;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    p:nth-child(2) {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    p:nth-child(3) {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0 0 20px 14px;
+
+        li {
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            color: #ECA740;
+            transform: translateY(-50%);
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.first-block-title {
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.block-title {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+p {
+    color: #000;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.right-block {
+    position: relative;
+    margin-top: 62px !important;
+
+    img {
+        top: 50%;
+        left: 100%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.container2 {
+    margin-bottom: 80px;
+
+    .row-title {
+        color: #000;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 35px;
+    }
+
+    .map-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+
+        }
+    }
+}
+
+.container3 {
+    margin-bottom: 80px;
+
+    .block-title {
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 290px;
+        height: 43px;
+        border: none;
+        display: flex;
+        color: #F3F7FA;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 4px;
+        background: #ECA740;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .track_order_container {
+        gap: 36px;
+
+        .order_type {
+            display: flex;
+            border-radius: 9px;
+            background: #F3F7FA;
+            min-width: 300px;
+            align-items: flex-end;
+            width: calc(50% - 18px);
+            padding: 17px 11px 11px;
+
+            img {
+                height: 43px;
+            }
+
+            a {
+                gap: 8px;
+                display: flex;
+                color: #494847;
+                font-size: 16px;
+                margin-left: 28px;
+                align-items: center;
+                justify-content: center;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+
+                img {
+                    height: unset;
+                }
+            }
+        }
+    }
+}
+
+.last-container {
+    margin-bottom: 60px;
+
+    .each_block {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+
+        .content {
+            p:first-child {
+                font-size: 17px;
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+
+            p:last-child {
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: unset;
+            }
+
+            a {
+                white-space: nowrap;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 1px;
+            }
+        }
+    }
+
+    .each_block:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    .last-column {
+        max-width: 455px;
+        padding: 20px 50px;
+        border-radius: 22px;
+        margin-left: 100px;
+        box-shadow: 0 0 4px 8px rgba(243, 247, 250, 1);
+    }
+}
+
+.container4 {
+    margin-bottom: 80px;
+
+    .last-block {
+        gap: 34px;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 46px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: unset;
+        }
+
+        a {
+            color: #ECA740;
+            font-size: 20px;
+            width: max-content;
+            text-decoration: none;
+            margin-bottom: unset;
+            border-bottom: 1px solid #ECA740;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .first-block-title {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .first-block {
+        margin-bottom: 30px;
+    }
+
+    .first-block p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .desktop_image {
+        display: none;
+    }
+
+    .container1 {
+        .right-block {
+            .block {
+                padding: 20px 100px 20px 20px;
+            }
+
+            img {
+                left: unset;
+                right: -30px;
+            }
+        }
+    }
+
+    .mobile_image {
+        display: block;
+    }
+
+    .block-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .block {
+        padding: 20px;
+
+        p {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            font-size: 14px;
+        }
+    }
+
+    .container2 .row-title {
+        font-size: 16px;
+    }
+
+    .container3 {
+        p {
+            font-size: 16px;
+        }
+
+        button {
+            margin-bottom: 60px;
+        }
+    }
+
+    .container2 {
+        margin-bottom: 12px;
+    }
+
+    .last-container {
+        .each_block:last-child {
+            margin-bottom: 60px;
+        }
+
+        .last-column {
+            margin-left: unset;
+
+            .each_block:last-child {
+                margin-bottom: unset;
+            }
+        }
+    }
+
+    .texts p {
+        font-size: 16px;
+    }
+}
