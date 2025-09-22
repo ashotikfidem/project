@@ -1,0 +1,354 @@
+<div class="filter-wrapper" x-data :class="$store.openFilter.on && '-active'">
+
+	<div class="filter-header">
+		<div class="reset-filter">Сбросить</div>
+		<div class="filter-header-title">Фильтры</div>
+		<div class="close-filter" @click="$store.openFilter.close()"></div>
+	</div>
+
+	<div class="filter-block">
+		<div class="filter-block-title" x-data data-id="scrollBrend" x-init="$store.jsScroll.initScroll($el); $store.jsScroll.open();"  @click="$store.jsScroll.toggle($el)">
+			<div class="filter-title">
+				Бренд
+			</div>
+			<div class="filter-block-title-btn" :class="$store.jsScroll.on && '-active'"></div>
+		</div>
+		<div  class="filter-block-body" x-transition x-show="$store.jsScroll.on" id="scrollBrend" x-cloak>
+			<div class="filter-block-body-cnt">
+				<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="filter-block" x-data="{ open: 1 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Стоимость
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body" x-show="open" x-transition x-cloak>
+			<div class="price-input-wrapper">
+	<div class="price-input">
+	  <div class="field">
+		<span>От</span>
+		<input type="number" class="input-min" value="2500">
+	  </div>
+	  <div class="separator">-</div>
+	  <div class="field">
+		<span>До</span>
+		<input type="number" class="input-max" value="7500">
+	  </div>
+	</div>
+	<div class="slider">
+	  <div class="progress" style="left: 5%; right: 25%;"></div>
+	</div>
+	<div class="range-input">
+	  <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+	  <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+	</div>
+  </div>
+		</div>
+	</div>
+
+
+	<div class="filter-block" x-data="{ open: 1 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Инверторная технология
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body js-scroll-tehno" x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+				<input type="checkbox" name="checkbox7" id="checkbox7">
+				<label for="checkbox7" class="form-comment">Да</label>
+				<div data-validate-for="checkbox7"></div>
+			</div>
+			<div class="form-group checkbox">
+				<input type="checkbox" name="checkbox8" id="checkbox8">
+				<label for="checkbox8" class="form-comment">Нет</label>
+				<div data-validate-for="checkbox8"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Для помещения площадью, м2
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Совместимость с Алисой
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Работа при низких температурах
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Уровень шума
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+	
+</div>
+
+<div class="apply-filter-button button -blue-bg -w100" x-data :class="$store.openFilter.on && '-active'">
+	Применить
+</div>
+
+
+<script>
+    function range() {
+        return {
+          minprice: 1000, 
+          maxprice: 7000,
+          min: 100, 
+          max: 10000,
+          minthumb: 0,
+          maxthumb: 0, 
+          
+          mintrigger() {   
+            this.minprice = Math.min(this.minprice, this.maxprice - 500);      
+            this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+          },
+           
+          maxtrigger() {
+            this.maxprice = Math.max(this.maxprice, this.minprice + 500); 
+            this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);    
+          }, 
+        }
+    }
+</script>

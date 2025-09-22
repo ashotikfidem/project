@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>iklimat</title>
+</head>
+
+
+<body  x-data="{ menu: 0}" :class="{ 'lock' : menu}" >
+
+
+<div class="wrapper">
+
+	<div id="header"></div>
+    
+    <main class="main">
+        <section class="main-hero">
+	<div class="container">
+		<div class="row main-hero-order">
+			<div class="col-md-6 col-12 -wide-block-mobile-1">
+				<a href="/catalog.html" class="main-hero-cat _pic-fluid -wide-block -bottom-right-text">
+					<img src="images/hero1.svg" alt="">
+					<h2 class="main-hero-title">Тепловые насосы</h2>
+					<div class="main-hero-desc">Инвертор высокой производительности, работающий при низких температурах. Идеальное решение для обогрева загородного дома</div>
+				</a>
+			</div>
+
+			<div class="col-md-3 col-6 -wide-block-mobile-3">
+				<a href="/katalog.html" class="main-hero-cat _pic-fluid -narrow-block -bottom-right-text">
+					<img src="images/hero2.svg" alt="">
+					<h2 class="main-hero-title">Неинверторные сплит-системы</h2>
+					<div class="main-hero-desc">Широкий выбор для разных целей и площадей</div>
+				</a>
+			</div>
+
+			<div class="col-md-3 col-6 -wide-block-mobile-4">
+				<a href="/katalog.html" class="main-hero-cat _pic-fluid -bottom-left-text -narrow-block">
+					<img src="images/hero3.svg" alt="">
+					<h2 class="main-hero-title">Полупромышленные кондиционеры</h2>
+					<div class="main-hero-desc">Климатическое решение для вашего бизнеса</div>
+				</a>
+			</div>
+
+			<div class="col-md-3 col-6 -wide-block-mobile-5">
+				<a href="#" class="main-hero-cat _pic-fluid -narrow-block -bottom-right-text">
+					<img src="images/hero4.svg" alt="">
+					<h2 class="main-hero-title">Как оплатить заказ?</h2>
+					<div class="main-hero-desc">Способы оплаты при заказе в нашей компании</div>
+				</a>
+			</div>
+
+			<div class="col-md-3 col-6 -wide-block-mobile-6">
+				<a href="#" class="main-hero-cat _pic-fluid -narrow-block -bottom-right-text">
+					<img src="images/hero5.svg" alt="">
+					<h2 class="main-hero-title">Вентиляционное оборудование</h2>
+					<div class="main-hero-desc">Чистый воздух в дома в городской среде</div>
+				</a>
+			</div>
+
+			<div class="col-md-6 col-12 -wide-block-mobile-2">
+				<a href="#" class="main-hero-cat _pic-fluid -wide-block -bottom-left-text -color-white">
+					<img src="images/hero6.svg" alt="">
+					<h2 class="main-hero-title">Инверторные сплит-<br>системы</h2>
+					<div class="main-hero-desc">Быстрое создание и сохранение комфортной температуры  с высокой точностью и минимальными затратами электроэнергии</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="section often-looking">
+	<div class="container">
+		<h2 class="h2 section-title">Часто ищут</h2>
+		<div class="decor-right-gradien">
+			<ul class="often-looking-list">
+				<li><a href="#">Для загородного дома</a></li>
+				<li><a href="#">Работа при низких температурах</a></li>
+				<li><a href="#">Для маленького помещения</a></li>
+				<li><a href="#">Со встроенным WI-FI</a></li>
+				<li><a href="#">Для спальни</a></li>
+				<li><a href="#">Работает с Алисой</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="section section-sales-hits">
+	<div class="container">
+		<h2 class="h2 section-title">
+			Хиты продаж 
+		</h2>
+
+		<div class="swiper-sales-hits-arrows">
+			<svg class="swiper-sales-hits-arrows-prev">
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-left" aria-hidden="true"></use>
+			</svg>
+			<svg class="swiper-sales-hits-arrows-next">
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-right" aria-hidden="true"></use>
+			</svg>
+		</div>
+
+
+		<div class="swiper swiper-sales-hits js-sales-hits decor-right-gradien" id="jsHits">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			  </div>
+			  <div class="swiper-slide">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			  </div>
+			  <div class="swiper-slide">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			  </div>
+			  <div class="swiper-slide">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			  </div>
+			  <div class="swiper-slide">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			  </div>
+
+			</div>
+		  </div>
+
+
+
+		<!-- <div class="row">
+			<div class="col-xxl-3  col-sm-4 col-6">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			</div>
+			<div class="col-xxl-3 col-sm-4 col-6">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			</div>
+			<div class="col-xxl-3 col-sm-4 col-6">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			</div>
+			<div class="col-xxl-3 col-sm-4 col-6">
+				<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+			</div>
+		</div> -->
+	</div>
+</section>
+
+
+<section class="section ">
+	<div class="container">
+		<div class="row">
+			<div class="col-xxl-3 col-sm-6  col-12">
+
+				<div class="title-text-icon-left-wrapper">
+					<img src="images/Car.svg" alt="">
+					<div class="title-text">Бесплатная доставка</div>
+					<div class="desc-text">Бесплатная доставка по Санкт-Петербургу при заказе от 36.000р</div>
+				</div>
+
+			</div>
+			<div class="col-xxl-3 col-sm-6  col-12">
+				<div class="title-text-icon-left-wrapper">
+					<img src="images/Repair.svg" alt="">
+					<div class="title-text">Сертифицированный монтаж</div>
+					<div class="desc-text">Монтаж с сохранением гарантийного срока</div>
+				</div>
+			</div>
+			<div class="col-xxl-3 col-sm-6  col-12">
+				<div class="title-text-icon-left-wrapper">
+					<img src="images/garanti.svg" alt="">
+					<div class="title-text">Гарантия</div>
+					<div class="desc-text">Официальная гарантия от производителя от 2х лет</div>
+				</div>
+			</div>
+			<div class="col-xxl-3 col-sm-6  col-12">
+				<div class="title-text-icon-left-wrapper">
+					<img src="images/of.svg" alt="">
+					<div class="title-text">Официальная продажа</div>
+					<div class="desc-text">При покупке вы получаете чек как в обычном магазине</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section section-brands">
+	<div class="container">
+		<div class="section-brands-container">
+			<div class="row _align-center">
+				<div class="col-md-5">
+					<div class="section-brands-desk">
+						<h2 class="h2">Официальный дилер климатического оборудования</h2>
+						<p>iKlimat предлагает разнообразный ассортимент кондиционеров и климатической техники от ведущих производителей.
+							В нашем каталоге вы найдете сплит-системы для бытового и полупромышленного использования таких брендов:  Daikin, Royal clima, Electrolux, Kentatsu, Daichi, Funai, Roland, Ballu, Bosch, Hisense, Hitachi, LanzKraft, Leberg, Midea, Zanussi</p>
+							<a href="#" class="button -blue-bg -w100">Сертификаты</a>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<img class="section-brands-image" src="images/brends.svg" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="section section-brands">
+	<div class="container">
+
+		<ul>
+			<li>
+				<a href="#" data-popup="call-back" class="--js--popup">Заказать обратный звонок</a>
+			</li>
+
+			<li>
+				<a href="#" data-popup="thanks-appeal" class="--js--popup">Спасибо за обращение в нашу компанию!</a>
+			</li>
+			<li>
+				<a href="#" data-popup="choose-city" class="--js--popup">Выберите город</a>
+			</li>
+
+			<li>
+				<a href="#" data-popup="choose-city-mini" class="--js--popup-city">Выберите город. Мини</a>
+			</li>
+		</ul>
+
+	</div>
+</section>
+    </main>
+
+	<div id="footer"></div>
+
+</div>
+
+<template id="question">
+	<swal-html>
+		<div class="popup-container">
+			<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/d_elXY2Lcfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		</div>
+	</swal-html>
+</template>
+
+<template id="call-back">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Заказать обратный звонок</div>
+			<div class="popup-container-subtitle">
+				Пожалуйста, заполните форму ниже и мы свяжемся с вами в течении рабочего дня:
+			</div>
+
+			<form class="popup-container-form">
+
+				<div class="form-group">
+					<label for="name">Как к вам обращаться?</label>
+					<input class="form-control" type="text" name="name">
+					<span data-validate-for="name"></span>
+				</div>
+		
+				<div class="form-group">
+					<label for="registerName">Контактный телефон</label>
+					<input class="form-control" type="text" name="phone" placeholder="+7 (111) 123-89-90">
+					<span data-validate-for="email"></span>
+				</div>
+		
+				<button type="submit" class="button -blue-bg -w100">Перезвоните мне</button>
+
+			</form>
+
+			<div class="popup-container-footer">
+				Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#">политикой конфиденциальности</a>
+			</div>
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="thanks-appeal">
+	<swal-html>
+		<div class="popup-container">
+			<img class="popup-container-image" src="images/thanks.svg" alt="">
+			<div class="popup-container-title h1">Спасибо за обращение в нашу компанию!</div>
+			<div class="popup-container-subtitle">
+				Ожидайте звонка от нашего сотрудника в течении дня
+			</div>
+			<a href="#" class="button -blue-border">Вернуться на сайт</a>
+
+		</div>
+	</swal-html>
+</template>
+
+
+<template id="choose-city">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Выберите город</div>
+			<div class="popup-container-subtitle">
+				Для более точного расчета сроков и стоимости доставки
+			</div>
+			<form class="popup-container-city-form">
+
+				<div class="form-group choose-city-form" x-data="{ open: 0 }">
+					<input class="form-control" type="text" name="name" @click.prevent="open = !open">
+					<ul class="choose-city-form-search-container" x-transition  x-cloak x-show="open">
+						<li>Москва</li>
+						<li>Санкт-Петербург</li>
+						<li>Воронеж</li>
+						<li>Иркутск</li>
+						<li>Ханты-Мансийск</li>
+						<li>Новосибирск</li>
+						<li>Керчь</li>
+					</ul>
+				</div>
+
+				<ul class="choose-city-lists">
+					<li>Москва</li>
+					<li>Санкт-Петербург</li>
+					<li>Воронеж</li>
+					<li>Иркутск</li>
+					<li>Ханты-Мансийск</li>
+					<li>Новосибирск</li>
+					<li>Керчь</li>
+				</ul>
+
+
+				<button type="submit" class="button -blue-bg -w100">Я здесь</button>
+
+			</form>
+
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="choose-city-mini">
+	<swal-html>
+		<div class="popup-container -mini">
+			<div class="choose-city-container-mini"  >
+				<div class="choose-city-container-header">
+					Ваш город:
+				</div>
+				<div class="choose-city-container-body">
+					Санкт-Петербург
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<a href="#" class="button -blue-bg">Да, я здесь</a>
+					</div>
+					<div class="col-6">
+						<a href="#" class="button -blue-border  " id="choose-city-swal2-confirm">Указать другой</a>
+					</div>   
+				</div>
+			</div>
+		</div>
+	</swal-html>
+</template>    
+
+	<script src="/javascript/alpine.js" defer></script>
+    <script src="/javascript/alpine-store.js"></script>
+    <script src="/javascript/script.min.js"></script>
+    <script src="/javascript/main.js"></script>
+
+</body>
+</html>

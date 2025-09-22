@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>iklimat</title>
+</head>
+
+
+<body x-data="{ menu: 0 }" :class="{ 'lock' : menu}" >
+
+
+<div class="wrapper">
+    <header 
+    class="header"  
+    :class="{ 
+        '-open-menu': menu,
+        '-open-search': search 
+    }" 
+    x-data="{ menu: false, searchButton: false, search: false }"
+>
+    <div class="header-top-wrapper" >
+        <div class="container">
+            <div class="header-top-block">
+                <span class="choose-city-icon icon-left" data-da="js--menu-mobile,0,991" x-data  >
+                    <span @click="$store.chooseCity.toggle();">
+                        <svg >
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#map" aria-hidden="true"></use>
+                        </svg>
+                        Санкт-Петербург
+                    </span>
+
+                    <div class="choose-city-container" x-transition x-show="$store.chooseCity.on" x-cloak>
+                        <div class="choose-city-container-close" @click="$store.chooseCity.close();"></div>
+                        <div class="choose-city-container-header">
+                            Ваш город:
+                        </div>
+                        <div class="choose-city-container-body">
+                            Санкт-Петербург
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="button -blue-bg">Да, я здесь</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="button -blue-border --js--popup" data-popup="choose-city" >Указать другой</a>
+                            </div>   
+                        </div>
+                    </div>
+                </span>
+                <nav class="top-header-menu-body" data-da="js--menu-mobile,2,991">
+                    <ul class="top-header-menu-list" >
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Частые вопросы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+
+        <div class="header-wrapper" >
+            
+            <a class="header-logo" href="/">
+                <img src="images/logo.svg" alt="">
+            </a>
+
+            <div class="header-mobile-icons" :class="{ 'open' : searchButton }">
+                
+                <div class="header-mobile-icons-wrapper --phone" >
+                    <a href="tel:+79651435345">
+                        <svg class="header-mobile-icons-phone">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- При клике на header-mobile-icons-wrapper добавляется клас open для  header-mobile-icons  это нужно чтобы спрятать иконку телефона -->
+
+                <div class="header-mobile-icons-wrapper" @click.prevent="searchButton = !searchButton">
+                    <template x-if="searchButton">
+                        <svg class="header-mobile-icons-search">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#xmark-solid" aria-hidden="true"></use>
+                        </svg>
+                    </template>
+                    <template x-if="!searchButton">
+                        <svg class="header-mobile-icons-search">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#search" aria-hidden="true"></use>
+                        </svg>
+                    </template>
+                </div>
+            </div>
+
+
+            <div  @click.prevent="menu = !menu" @click.away="menu = false" class="hamburger hamburger--collapse" :class="{ 'is-active' : menu , 'is-no-active' : !menu}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+                <div class="hamburger-text">
+                    Каталог
+                </div>
+            </div>
+
+            <div class="header-search-wrapper" :class="{ 'open' : searchButton }">
+                <form class="nosubmit" @click.prevent="search = !search" @click.away="search = false">
+                    <input class="nosubmit header-search-wrapper-input" type="text" placeholder="Поиск по оборудованию">
+                </form>
+            </div>
+
+            <!-- При клике на header-search-wrapper добавляается клас -open для header-search-lists-wrapper и header-search-lists-container. Логику можно изменить к примеру при поиске если есть значения то добавляются классы -open и отображаются значения. Также добавляется клас open для header-search-wrapper чтобы показалось меню.  -->
+
+            <div class="header-search-lists-wrapper" :class="{ '-open' : search }">
+                <div class="header-search-lists-container" :class="{ '-open' : search }">
+                      <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690 
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                      </a>
+                      <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690 
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                    </a>
+                    <div class="header-search-item">
+                        Нет результатов
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="tel:79651435345" class="icon-left -phone" data-da="js--menu-mobile,1,991">
+                <svg>
+					<use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+				</svg>
+                +7 (965) 143-53-45
+            </a>
+
+
+            <nav class="header-menu-body" :class="{ '-open' : menu }">
+                <div class="header-menu-list" :class="{ '-open' : menu }">
+                    <div class="row">
+
+                        <div class="col-md-4 col-6">
+                            <a href="/" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n1.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n1.svg" alt="">
+                                
+                                <span>Тепловые насосы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n2.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n2.svg" alt="">
+                                <span>Инверторные сплит-системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n3.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n3.svg" alt="">
+                                <span>Вентиляция</span>
+                            </a>
+                        </div>
+
+
+
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n4.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n4.svg" alt="">
+                                <span>Полупромышленные
+                                    кондиционеры</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n5.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n5.svg" alt="">
+                                <span>Бытовые сплит-системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n6.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n6.svg" alt="">
+                                <span>Мульти сплит- системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row ">
+                                <img class="cat-menu-item-desk" src="images/n7.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n7.svg" alt="">
+                                <span>Wi-Fi модули и аксессуары</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="js--menu-mobile -menu-mobile"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header> 
+    
+    <main class="main">
+        
+<!-- breadcrumbs -->
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="#">Главная</a></li>
+		<li><a href="#">Каталог</a></li>
+		<li><a href="#">Кондиционеры</a></li>
+		<li><a href="#">Инверторные сплит-системы</a></li>
+		<li><a href="#">Hisense</a></li>
+		<li><a href="#">SILVER CRYSTAL</a></li>
+		<li>AS-13UW4RVETG01(S)</li>
+	</ul>
+	<ul class="breadcrumb-mobile">
+		<li><a href="#">
+			<span class="icon-left">
+                <svg>
+					<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-left-breadcrumbs" aria-hidden="true"></use>
+				</svg>
+                Кондиционеры
+            </span>
+		</a></li>
+	</ul>
+</div>
+
+<div class="container">
+
+	<div class="js-move-title-mobile">
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="swiper  cardSwiper2 cardSwiper-header">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide _pic-fluid">
+						<img src="images/card-item-swiper-image.png" />
+					</div>
+					<div class="swiper-slide _pic-fluid">
+						<img src="images/item-card-image-2.png" />
+					</div>
+					<div class="swiper-slide _pic-fluid">
+						<img src="images/item-card-image-3.png" />
+					</div>
+					<div class="swiper-slide _pic-fluid">
+						<img src="images/item-card-image-4.png" />
+					</div>
+					<div class="swiper-slide _pic-fluid">
+						<img src="images/card-item-swiper-image.png" />
+					</div>
+				</div>
+				<div class="swiper-button-next">
+					<svg >
+						<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-right-solid" aria-hidden="true"></use>
+					</svg>
+				</div>
+				<div class="swiper-button-prev">
+					<svg >
+						<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-left-solid" aria-hidden="true"></use>
+					</svg>
+				</div>
+			</div>
+			<div thumbsSlider="" class="swiper cardSwiper cardSwiper-thumbsSlider">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide ">
+						<div class="cardSwiper-thumbsSlider-container">
+							<img src="images/card-item-swiper-image.png" />
+						</div>
+					</div>
+					<div class="swiper-slide ">
+						<div class="cardSwiper-thumbsSlider-container">
+							<img src="images/item-card-image-2.png" />
+						</div>
+					</div>
+					<div class="swiper-slide ">
+						<div class="cardSwiper-thumbsSlider-container">
+							<img src="images/item-card-image-3.png" />
+						</div>
+					</div>
+					<div class="swiper-slide ">
+						<div class="cardSwiper-thumbsSlider-container">
+							<img src="images/item-card-image-4.png" />
+						</div>
+					</div>
+					<div class="swiper-slide ">
+						<div class="cardSwiper-thumbsSlider-container">
+							<img src="images/card-item-swiper-image.png" />
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 ">
+			<div class="item-card-page-wrapper">
+				<h1 class="item-card-page-title" data-da="js-move-title-mobile,0,768">Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverter 2023</h1>
+				<div class="item-card-art">Арт: SF0021</div>
+				<p class="item-card-page-room">Для помещения площадью, м2</p>
+				<div class="decor-right-gradien">
+					<ul class="item-card-size-lists">
+						<li><a class="active" href="#">20</a></li>
+						<li><a class="" href="#">25</a></li>
+						<li>
+							<div class="is_unavailable-item" x-data="{open: false}" @mouseout="open = false">
+								<a class="disable" href="#" @mouseover="open = true">35</a>
+								<div class="is_unavailable-item-desc" x-show="open" >
+									В данный момент этого товара нет в наличии
+								</div>
+							</div>
+						</li>
+						<li><a href="#">45</a></li>
+						<li><a href="#">50</a></li>
+						<li><a href="#">60</a></li>
+						<li><a href="#">70</a></li>
+					</ul>
+				</div>
+
+				<div class="item-card-art-characteristics">Характеристики</div>
+					<div class="item-card-page-characteristics" x-data="{open:0}" >
+						<div class="row item-card-page-characteristics-block" >
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Инверторная технология: <strong>Да</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Wi-fi:Опция (приобретается отдельно)</p>
+							</div>
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Инверторная технология: <strong>Да</strong></p>
+							</div>
+							<div class="col-lg-6">
+								<p>Wi-fi:Опция (приобретается отдельно)</p>
+							</div>
+							<div class="col-lg-6">
+								<p>Класс энергоэффективности: <strong>А+</strong></p>
+							</div>
+						</div>
+
+						<!-- <div class="row">
+							<div class="col-lg-6 ">
+								<a class="show-all-characteristics-block" href="#" @click.prevent="open = !open" @click.away="open = false">Все характеристики</a>
+							</div>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="row _align-center">
+					<div class="col-xxl-6 col-12">
+						<div class="place-order-wrapper">
+							<div class="place-order-button-wrapper">
+								<div class="place-order-price">
+									59 990
+									<svg>
+										<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+									</svg>
+								</div>
+								<div class="place-order-availability -available">В наличии</div>
+								<a href="#" class="button -orange-bg -w100">Оформить заказ</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-xxl-6 col-12">
+						<div class="place-order-delivery">
+							<p><span>Доставка в</span> <a href="#">Комсомольск-на-Амуре</a></p>
+							<p><span>Курьером:</span> от 8 рабочих дней 6 790 руб</p>
+							<p><span>ПВЗ СДЭК:</span> от 8 рабочих дней 6 790 руб</p>
+						</div>
+						<p></p>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="tab-wrapper" x-data="{ activeTab:  0 }">
+		<div class="flex">
+		  <label
+			@click="activeTab = 0"
+			class="tab-control"
+			:class="{ 'active': activeTab === 0 }"
+		  >Характеристики</label>
+		  <label
+			@click="activeTab = 1"
+			class="tab-control"
+			:class="{ 'active': activeTab === 1 }"
+		  >Доставка и оплата</label>
+
+		</div>
+	  
+		<div class="tabs-text-wrapper">
+			<div class="tab-panel" :class="{ 'active': activeTab === 0 }" x-transition x-show.transition.in.opacity.duration.600="activeTab === 0">
+				<div class="tab-panel-desc-container">
+
+					<h2>Основные характеристики</h2>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Группа товара</div>
+						<div class="tab-panel-desc-right">Бытовые сплит-системы</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Для помещения площадью, м2</div>
+						<div class="tab-panel-desc-right">25</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Доработка</div>
+						<div class="tab-panel-desc-right">Без доработки</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Инверторная технология</div>
+						<div class="tab-panel-desc-right">Нет</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Описание</div>
+						<div class="tab-panel-desc-right">Фотокаталитический фильтр уничтожает органические соединения и эффективно устраняет запахи Одним нажатием кнопки «Любимые настройки» активируются предпочтительные установки работы кондиционера При выборе режима Follow Me комфортный температурный режим будет установлен в месте расположения пульта ДУ</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Основные режимы работы</div>
+						<div class="tab-panel-desc-right">Охлаждение/нагрев</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Серия</div>
+						<div class="tab-panel-desc-right">Paramount</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Текстура пластика</div>
+						<div class="tab-panel-desc-right">Глянцевый</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Группа</div>
+						<div class="tab-panel-desc-right">Бытовые</div>
+					</div>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Группа</div>
+						<div class="tab-panel-desc-right">Бытовые</div>
+					</div>
+	
+					<h2 class="tab-panel-desc-title">Компоненты</h2>
+	
+					<div class="tab-panel-desc-wrapper">
+						<div class="tab-panel-desc-left">Количество хладагента, кг</div>
+						<div class="tab-panel-desc-right">0.65</div>
+					</div>
+				</div>
+
+
+				<div class="tab-panel-desc-information">
+                  
+					<p>  
+						<svg>
+							<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#info" aria-hidden="true"></use>
+						</svg>
+					</p>
+					Технические характеристики и внешний вид товара могут быть изменены производителем без уведомления.
+				</div>
+
+			</div>
+			<div class="tab-panel" :class="{ 'active': activeTab === 1 }" x-transition x-show.transition.in.opacity.duration.600="activeTab === 1">
+				<div class="tab-panel-desc-container">
+					<div class="delivery-payment-block">
+						<div class="delivery-payment-title">
+							<svg>
+								<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#car-item-page" aria-hidden="true"></use>
+							</svg>
+							<h2>Доставка</h2>
+						</div>
+						
+						Доставка осуществляется транспортной компанией (ТК) СДЭК. Вы оформляете её самостоятельно при заказе. Доставка оборудования до ТК бесплатная.
+						<br>Доставка по г. Санкт-Петербург бесплатная (в пределах КАД)
+				  </div>
+	
+					<div class="delivery-payment-block">
+						<div class="delivery-payment-title">
+							<svg>
+								<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#walet" aria-hidden="true"></use>
+							</svg>
+							<h2>Оплата</h2>
+						</div>
+
+						Оплатить можно следующими способами:
+						<ul>
+							<li>Переводом по номеру телефона на Сбербанк/Тинькофф</li>
+							<li>По ку ар коду</li>
+							<li>По расчетному счету. Отгрузка происходит только после зачисления средств на наш р/с. Без НДС</li>
+						</ul>
+
+				</div>
+	
+					<div class="delivery-payment-block">
+						<div class="delivery-payment-title">
+							<svg>
+								<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#garanty" aria-hidden="true"></use>
+							</svg>
+							<h2>Чек и гарантия</h2>
+						</div>
+						
+						Чек высылаем в электронном виде в течении 15 мин после вашей оплаты.
+						Гарантия на оборудование идет от производителя - вы можете обратиться в сервисный центр бесплатно при наступлении гарантийного случая.
+				</div>
+				</div>
+			</div>
+		</div>
+
+	  </div>
+</div>
+
+    </main>
+    
+    <footer class="footer">
+	<div class="footer-head">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-lg-3">
+					<a href="" class="footer-logo">
+						<img src="../images/logo.svg" alt="">
+					</a>
+					<div class="footer-contakt">
+						<a class="footer-phone" href="tel:+79651435345">+7 (965) 143-53-45</a>
+						<a class="footer-email" href="mailto:office@iklimat.pro">office@iklimat.pro</a>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-4 col-xs-6 col-12">
+					<div class="footer-title">Покупателям</div>
+					<ul class="footer-nav -column-2">
+						<li><a href="">Часто задаваемые вопросы</a></li>
+						<li><a href="">Гарантия и возврат</a></li>
+						<li><a href="">Доставка</a></li>
+						<li><a href="">Оплата</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 col-lg-2 col-xs-6 col-12">
+					<div class="footer-title">О компании</div>
+					<ul class="footer-nav">
+						<li><a href="">Сертификаты качества</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 col-lg-3 footer-sotial-media-wrapper">
+					<div class="sotial-media">
+						<a href="#" class="_pic-fluid">
+							<img src="images/yam.svg" alt="">
+						</a>
+						<a href="#" class="_pic-fluid">
+							<img src="images/ozon.svg" alt="">
+						</a>
+						<a href="#" class="_pic-fluid">
+							<img src="images/sberm.svg" alt="">
+						</a>
+						<a href="#" class="_pic-fluid">
+							<img src="images/avito.svg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+	
+	<div class="footer-policy">
+		<div class="container">
+			<span>© iKlimat 2023 | </span> 
+			<span>Все права защищены | </span>
+			<a href="#">Политика конфиденциальности | </a>
+			<a href="#">Пользовательское соглашение</a>
+		</div>
+	</div>
+ </footer>
+
+</div>
+
+<template id="question">
+	<swal-html>
+		<div class="popup-container">
+			<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/d_elXY2Lcfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		</div>
+	</swal-html>
+</template>
+
+<template id="call-back">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Заказать обратный звонок</div>
+			<div class="popup-container-subtitle">
+				Пожалуйста, заполните форму ниже и мы свяжемся с вами в течении рабочего дня:
+			</div>
+
+			<form class="popup-container-form">
+
+				<div class="form-group">
+					<label for="name">Как к вам обращаться?</label>
+					<input class="form-control" type="text" name="name">
+					<span data-validate-for="name"></span>
+				</div>
+		
+				<div class="form-group">
+					<label for="registerName">Контактный телефон</label>
+					<input class="form-control" type="text" name="phone" placeholder="+7 (111) 123-89-90">
+					<span data-validate-for="email"></span>
+				</div>
+		
+				<button type="submit" class="button -blue-bg -w100">Перезвоните мне</button>
+
+			</form>
+
+			<div class="popup-container-footer">
+				Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#">политикой конфиденциальности</a>
+			</div>
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="thanks-appeal">
+	<swal-html>
+		<div class="popup-container">
+			<img class="popup-container-image" src="images/thanks.svg" alt="">
+			<div class="popup-container-title h1">Спасибо за обращение в нашу компанию!</div>
+			<div class="popup-container-subtitle">
+				Ожидайте звонка от нашего сотрудника в течении дня
+			</div>
+			<a href="#" class="button -blue-border">Вернуться на сайт</a>
+
+		</div>
+	</swal-html>
+</template>
+
+
+<template id="choose-city">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Выберите город</div>
+			<div class="popup-container-subtitle">
+				Для более точного расчета сроков и стоимости доставки
+			</div>
+			<form class="popup-container-city-form">
+
+				<div class="form-group choose-city-form" x-data="{ open: 0 }">
+					<input class="form-control" type="text" name="name" @click.prevent="open = !open">
+					<ul class="choose-city-form-search-container" x-transition  x-cloak x-show="open">
+						<li>Москва</li>
+						<li>Санкт-Петербург</li>
+						<li>Воронеж</li>
+						<li>Иркутск</li>
+						<li>Ханты-Мансийск</li>
+						<li>Новосибирск</li>
+						<li>Керчь</li>
+					</ul>
+				</div>
+
+				<ul class="choose-city-lists">
+					<li>Москва</li>
+					<li>Санкт-Петербург</li>
+					<li>Воронеж</li>
+					<li>Иркутск</li>
+					<li>Ханты-Мансийск</li>
+					<li>Новосибирск</li>
+					<li>Керчь</li>
+				</ul>
+
+
+				<button type="submit" class="button -blue-bg -w100">Я здесь</button>
+
+			</form>
+
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="choose-city-mini">
+	<swal-html>
+		<div class="popup-container -mini">
+			<div class="choose-city-container-mini"  >
+				<div class="choose-city-container-header">
+					Ваш город:
+				</div>
+				<div class="choose-city-container-body">
+					Санкт-Петербург
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<a href="#" class="button -blue-bg">Да, я здесь</a>
+					</div>
+					<div class="col-6">
+						<a href="#" class="button -blue-border  " id="choose-city-swal2-confirm">Указать другой</a>
+					</div>   
+				</div>
+			</div>
+		</div>
+	</swal-html>
+</template>    
+
+	<script src="javascript/alpine.js" defer></script>
+    <script src="javascript/alpine-store.js"></script>
+    <script src="javascript/let-me-scroll.js"></script>
+    <script src="javascript/script.min.js"></script>
+
+</body>
+</html>

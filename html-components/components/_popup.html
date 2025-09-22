@@ -1,0 +1,123 @@
+<template id="question">
+	<swal-html>
+		<div class="popup-container">
+			<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/d_elXY2Lcfk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+		</div>
+	</swal-html>
+</template>
+
+<template id="call-back">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Заказать обратный звонок</div>
+			<div class="popup-container-subtitle">
+				Пожалуйста, заполните форму ниже и мы свяжемся с вами в течении рабочего дня:
+			</div>
+
+			<form class="popup-container-form">
+
+				<div class="form-group">
+					<label for="name">Как к вам обращаться?</label>
+					<input class="form-control" type="text" name="name">
+					<span data-validate-for="name"></span>
+				</div>
+		
+				<div class="form-group">
+					<label for="registerName">Контактный телефон</label>
+					<input class="form-control" type="text" name="phone" placeholder="+7 (111) 123-89-90">
+					<span data-validate-for="email"></span>
+				</div>
+		
+				<button type="submit" class="button -blue-bg -w100">Перезвоните мне</button>
+
+			</form>
+
+			<div class="popup-container-footer">
+				Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#">политикой конфиденциальности</a>
+			</div>
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="thanks-appeal">
+	<swal-html>
+		<div class="popup-container">
+			<img class="popup-container-image" src="images/thanks.svg" alt="">
+			<div class="popup-container-title h1">Спасибо за обращение в нашу компанию!</div>
+			<div class="popup-container-subtitle">
+				Ожидайте звонка от нашего сотрудника в течении дня
+			</div>
+			<a href="#" class="button -blue-border">Вернуться на сайт</a>
+
+		</div>
+	</swal-html>
+</template>
+
+
+<template id="choose-city">
+	<swal-html>
+		<div class="popup-container">
+			<div class="popup-container-title h1">Выберите город</div>
+			<div class="popup-container-subtitle">
+				Для более точного расчета сроков и стоимости доставки
+			</div>
+			<form class="popup-container-city-form">
+
+				<div class="form-group choose-city-form" x-data="{ open: 0 }">
+					<input class="form-control" type="text" name="name" @click.prevent="open = !open">
+					<ul class="choose-city-form-search-container" x-transition  x-cloak x-show="open">
+						<li>Москва</li>
+						<li>Санкт-Петербург</li>
+						<li>Воронеж</li>
+						<li>Иркутск</li>
+						<li>Ханты-Мансийск</li>
+						<li>Новосибирск</li>
+						<li>Керчь</li>
+					</ul>
+				</div>
+
+				<ul class="choose-city-lists">
+					<li>Москва</li>
+					<li>Санкт-Петербург</li>
+					<li>Воронеж</li>
+					<li>Иркутск</li>
+					<li>Ханты-Мансийск</li>
+					<li>Новосибирск</li>
+					<li>Керчь</li>
+				</ul>
+
+
+				<button type="submit" class="button -blue-bg -w100">Я здесь</button>
+
+			</form>
+
+		</div>
+	</swal-html>
+</template>
+
+
+
+<template id="choose-city-mini">
+	<swal-html>
+		<div class="popup-container -mini">
+			<div class="choose-city-container-mini"  >
+				<div class="choose-city-container-header">
+					Ваш город:
+				</div>
+				<div class="choose-city-container-body">
+					Санкт-Петербург
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<a href="#" class="button -blue-bg">Да, я здесь</a>
+					</div>
+					<div class="col-6">
+						<a href="#" class="button -blue-border  " id="choose-city-swal2-confirm">Указать другой</a>
+					</div>   
+				</div>
+			</div>
+		</div>
+	</swal-html>
+</template>

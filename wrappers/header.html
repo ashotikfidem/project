@@ -1,0 +1,212 @@
+<header
+        class="header"
+        :class="{
+        '-open-menu': menu,
+        '-open-search': search
+    }"
+        x-data="{ menu: false, searchButton: false, search: false }"
+>
+    <div class="header-top-wrapper" >
+        <div class="container">
+            <div class="header-top-block">
+                <span class="choose-city-icon icon-left" data-da="js--menu-mobile,0,991" x-data  >
+                    <span @click="$store.chooseCity.toggle();">
+                        <svg >
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#map" aria-hidden="true"></use>
+                        </svg>
+                        Санкт-Петербург
+                    </span>
+
+                    <div class="choose-city-container" x-transition x-show="$store.chooseCity.on" x-cloak>
+                        <div class="choose-city-container-close" @click="$store.chooseCity.close();"></div>
+                        <div class="choose-city-container-header">
+                            Ваш город:
+                        </div>
+                        <div class="choose-city-container-body">
+                            Санкт-Петербург
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="button -blue-bg">Да, я здесь</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="button -blue-border --js--popup" data-popup="choose-city" >Указать другой</a>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <nav class="top-header-menu-body" data-da="js--menu-mobile,2,991">
+                    <ul class="top-header-menu-list" >
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="/pages/delivery/index.html">Доставка</a></li>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Частые вопросы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+
+        <div class="header-wrapper" >
+
+            <a class="header-logo" href="/">
+                <img src="/images/logo.svg" alt="">
+            </a>
+
+            <div class="header-mobile-icons" :class="{ 'open' : searchButton }">
+
+                <div class="header-mobile-icons-wrapper --phone" >
+                    <a href="tel:+79651435345">
+                        <svg class="header-mobile-icons-phone">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- При клике на header-mobile-icons-wrapper добавляется клас open для  header-mobile-icons  это нужно чтобы спрятать иконку телефона -->
+
+                <div class="header-mobile-icons-wrapper" @click.prevent="searchButton = !searchButton">
+                    <template x-if="searchButton">
+                        <svg class="header-mobile-icons-search">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#xmark-solid" aria-hidden="true"></use>
+                        </svg>
+                    </template>
+                    <template x-if="!searchButton">
+                        <svg class="header-mobile-icons-search">
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#search" aria-hidden="true"></use>
+                        </svg>
+                    </template>
+                </div>
+            </div>
+
+
+            <div  @click.prevent="menu = !menu" @click.away="menu = false" class="hamburger hamburger--collapse" :class="{ 'is-active' : menu , 'is-no-active' : !menu}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+                <div class="hamburger-text">
+                    Каталог
+                </div>
+            </div>
+
+            <div class="header-search-wrapper" :class="{ 'open' : searchButton }">
+                <form class="nosubmit" @click.prevent="search = !search" @click.away="search = false">
+                    <input class="nosubmit header-search-wrapper-input" type="text" placeholder="Поиск по оборудованию">
+                </form>
+            </div>
+
+            <!-- При клике на header-search-wrapper добавляается клас -open для header-search-lists-wrapper и header-search-lists-container. Логику можно изменить к примеру при поиске если есть значения то добавляются классы -open и отображаются значения. Также добавляется клас open для header-search-wrapper чтобы показалось меню.  -->
+
+            <div class="header-search-lists-wrapper" :class="{ '-open' : search }">
+                <div class="header-search-lists-container" :class="{ '-open' : search }">
+                    <a href="#" class="header-search-item">
+                        <div class="header-search-item-image _pic-fluid">
+                            <img src="images/item-card-image.png" alt="">
+                        </div>
+                        <div class="header-search-item-desk">
+                            Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                        </div>
+                        <div class="header-search-item-price">
+                            46 690
+                            <svg>
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="#" class="header-search-item">
+                        <div class="header-search-item-image _pic-fluid">
+                            <img src="images/item-card-image.png" alt="">
+                        </div>
+                        <div class="header-search-item-desk">
+                            Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                        </div>
+                        <div class="header-search-item-price">
+                            46 690
+                            <svg>
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="header-search-item">
+                        Нет результатов
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="tel:79651435345" class="icon-left -phone" data-da="js--menu-mobile,1,991">
+                <svg>
+                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                </svg>
+                +7 (965) 143-53-45
+            </a>
+
+
+            <nav class="header-menu-body" :class="{ '-open' : menu }">
+                <div class="header-menu-list" :class="{ '-open' : menu }">
+                    <div class="row">
+
+                        <div class="col-md-4 col-6">
+                            <a href="/" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n1.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n1.svg" alt="">
+
+                                <span>Тепловые насосы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n2.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n2.svg" alt="">
+                                <span>Инверторные сплит-системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                <img class="cat-menu-item-desk" src="images/n3.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n3.svg" alt="">
+                                <span>Вентиляция</span>
+                            </a>
+                        </div>
+
+
+
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n4.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n4.svg" alt="">
+                                <span>Полупромышленные
+                                    кондиционеры</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n5.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n5.svg" alt="">
+                                <span>Бытовые сплит-системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                <img class="cat-menu-item-desk" src="images/n6.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n6.svg" alt="">
+                                <span>Мульти сплит- системы</span>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#" class="cat-menu-item _pic-fluid -for-in-row ">
+                                <img class="cat-menu-item-desk" src="images/n7.svg" alt="">
+                                <img class="cat-menu-item-mobile" src="images/n7.svg" alt="">
+                                <span>Wi-Fi модули и аксессуары</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="js--menu-mobile -menu-mobile"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

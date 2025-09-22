@@ -1,0 +1,624 @@
+
+<!-- breadcrumbs -->
+<div class="container">
+	<ul class="breadcrumb">
+	<li><a href="#">Главная</a></li>
+	<li><a href="#">Каталог</a></li>
+	<li><a href="#">Кондиционеры</a></li>
+	<li>Инверторные сплит-системы</li>
+  </ul>
+	<ul class="breadcrumb-mobile">
+		<li><a href="#">
+			<span class="icon-left">
+                <svg>
+					<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#arrow-left-breadcrumbs" aria-hidden="true"></use>
+				</svg>
+                Кондиционеры
+            </span>
+		</a></li>
+	</ul>
+</div>
+
+<div class="container catalog-items-wrapper">	
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="filter-wrapper" x-data :class="$store.openFilter.on && '-active'">
+
+	<div class="filter-header">
+		<div class="reset-filter">Сбросить</div>
+		<div class="filter-header-title">Фильтры</div>
+		<div class="close-filter" @click="$store.openFilter.close()"></div>
+	</div>
+
+	<div class="filter-block">
+		<div class="filter-block-title" x-data data-id="scrollBrend" x-init="$store.jsScroll.initScroll($el); $store.jsScroll.open();"  @click="$store.jsScroll.toggle($el)">
+			<div class="filter-title">
+				Бренд
+			</div>
+			<div class="filter-block-title-btn" :class="$store.jsScroll.on && '-active'"></div>
+		</div>
+		<div  class="filter-block-body" x-transition x-show="$store.jsScroll.on" id="scrollBrend" x-cloak>
+			<div class="filter-block-body-cnt">
+				<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="filter-block" x-data="{ open: 1 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Стоимость
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body" x-show="open" x-transition x-cloak>
+			<div class="price-input-wrapper">
+	<div class="price-input">
+	  <div class="field">
+		<span>От</span>
+		<input type="number" class="input-min" value="2500">
+	  </div>
+	  <div class="separator">-</div>
+	  <div class="field">
+		<span>До</span>
+		<input type="number" class="input-max" value="7500">
+	  </div>
+	</div>
+	<div class="slider">
+	  <div class="progress" style="left: 5%; right: 25%;"></div>
+	</div>
+	<div class="range-input">
+	  <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+	  <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+	</div>
+  </div>
+		</div>
+	</div>
+
+
+	<div class="filter-block" x-data="{ open: 1 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Инверторная технология
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body js-scroll-tehno" x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+				<input type="checkbox" name="checkbox7" id="checkbox7">
+				<label for="checkbox7" class="form-comment">Да</label>
+				<div data-validate-for="checkbox7"></div>
+			</div>
+			<div class="form-group checkbox">
+				<input type="checkbox" name="checkbox8" id="checkbox8">
+				<label for="checkbox8" class="form-comment">Нет</label>
+				<div data-validate-for="checkbox8"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Для помещения площадью, м2
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Совместимость с Алисой
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Работа при низких температурах
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+
+	<div class="filter-block" x-data="{ open: 0 }">
+		<div class="filter-block-title" @click="open = ! open">
+			<div class="filter-title">
+				Уровень шума
+			</div>
+			<div class="filter-block-title-btn" :class="{ '-active' : open }"></div>
+		</div>
+		<div class="filter-block-body " x-show="open" x-transition x-cloak>
+			<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox1" id="checkbox1">
+	<label for="checkbox1" class="form-comment">Ballu <span>89</span></label>
+	<div data-validate-for="checkbox1"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox2" id="checkbox2">
+	<label for="checkbox2" class="form-comment">Bosch <span>34</span></label>
+	<div data-validate-for="checkbox2"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox3" id="checkbox3">
+	<label for="checkbox3" class="form-comment">Daichi <span>51</span></label>
+	<div data-validate-for="checkbox3"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox4" id="checkbox4">
+	<label for="checkbox4" class="form-comment">Daikin <span>32</span></label>
+	<div data-validate-for="checkbox4"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox5" id="checkbox5">
+	<label for="checkbox5" class="form-comment">Electrolux <span>89</span></label>
+	<div data-validate-for="checkbox5"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox6" id="checkbox6">
+	<label for="checkbox6" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox6"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox7" id="checkbox7">
+	<label for="checkbox7" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox7"></div>
+</div>
+<div class="form-group checkbox">
+	<input type="checkbox" name="checkbox8" id="checkbox8">
+	<label for="checkbox8" class="form-comment">Fujitsu <span>29</span></label>
+	<div data-validate-for="checkbox8"></div>
+</div>
+
+		</div>
+	</div>
+	
+</div>
+
+<div class="apply-filter-button button -blue-bg -w100" x-data :class="$store.openFilter.on && '-active'">
+	Применить
+</div>
+
+
+<script>
+    function range() {
+        return {
+          minprice: 1000, 
+          maxprice: 7000,
+          min: 100, 
+          max: 10000,
+          minthumb: 0,
+          maxthumb: 0, 
+          
+          mintrigger() {   
+            this.minprice = Math.min(this.minprice, this.maxprice - 500);      
+            this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+          },
+           
+          maxtrigger() {
+            this.maxprice = Math.max(this.maxprice, this.minprice + 500); 
+            this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);    
+          }, 
+        }
+    }
+</script>
+		</div>
+
+
+		<div class="col-lg-9">
+			<h1>Инверторные сплит-системы</h1>
+			<div class="h3 often-looking-title">Часто ищут:</div>
+			
+			<ul class="often-looking-list">
+				<li><a href="#">Тихий</a></li>
+				<li class="-active"><a href="#">Тепловой насос</a></li>
+				<li><a href="#">Работает с Алисой</a></li>
+				<li><a href="#">Работает по Wi-Fi</a></li>
+			</ul>
+
+			<div class="filter-button" x-data @click="$store.openFilter.toggle($el)">
+				<img src="images/filter.svg" alt="">
+				Фильтр
+			</div>
+
+			<select class="filter-sorting">
+				<option>По популярности</option>
+				<option>По возрастанию цены</option>
+				<option>По убыванию цены</option>
+			</select>
+
+			<div class="row no-gutters">
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-6">
+					<div class="item-card-wrapper">
+	<a href="#" class="item-card-image -two-images">
+		<img class="-two-images-1" src="images/item-card-image.png" alt="">
+		<img class="-two-images-2" src="images/Electrolux Evolution Super.png" alt="">
+	</a>
+	<div class="item-card-art">
+		Арт: RC008
+	</div>
+	<div class="item-card-sys">
+		Инверторные сплит-системы
+	</div>
+	<a href="#" class="item-card-title">
+		Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverte...
+	</a>
+	<div class="item-card-brend">
+		<span>Бренд:</span>  Royal Clima
+	</div>
+	<div class="item-card-prise-wrapper">
+		<div class="item-card-prise">
+			46 690 
+			<svg>
+				<use xlink:href="images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+			</svg>
+		</div>
+		<div class="item-card-availability">В наличии</div>
+	</div>
+	<a href="/item-card.html" class="button -orange-bg -w100">Оформить заказ</a>
+
+	<div class="item-card-delivery">
+		<span>Доставка в </span> Санкт-Петербург <br>	 от 1 рабочего дня бесплатно
+	</div>
+</div>
+				</div>
+			</div>
+
+			<ul class="pagination">
+	<!-- <li class="disabled"><span>«</span></li> -->
+	<li class="active"><span>1</span></li>
+	<li><a href="#">2</a></li>
+	<li class="points"><span>...</span></li>
+	<li><a href="#">27</a></li>
+	<!-- <li><a href="#" rel="next">»</a></li> -->
+</ul>
+		</div>
+	</div>
+</div>
+
+
