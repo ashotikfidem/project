@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доставка</title>
-
-    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>iklimat</title>
 </head>
-<body>
+
+<body x-data="{ menu: 0}" :class="{ 'lock' : menu}" >
 <div class="page-delivery">
     <header
             class="header"
@@ -368,5 +369,12 @@
         </div>
     </footer>
 </div>
+
+
+
+<script src="javascript/alpine.js" defer></script>
+<script src="javascript/alpine-store.js"></script>
+<script src="javascript/script.min.js"></script>
+
 </body>
 </html>
