@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<div class="page-return">
+    <header
+            class="header"
+            :class="{
+        '-open-menu': menu,
+        '-open-search': search
+    }"
+            x-data="{ menu: false, searchButton: false, search: false }"
+    >
+        <div class="header-top-wrapper" >
+            <div class="container">
+                <div class="header-top-block">
+                <span class="choose-city-icon icon-left" data-da="js--menu-mobile,0,991" x-data  >
+                    <span @click="$store.chooseCity.toggle();">
+                        <svg >
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#map" aria-hidden="true"></use>
+                        </svg>
+                        Санкт-Петербург
+                    </span>
+
+                    <div class="choose-city-container" x-transition x-show="$store.chooseCity.on" x-cloak>
+                        <div class="choose-city-container-close" @click="$store.chooseCity.close();"></div>
+                        <div class="choose-city-container-header">
+                            Ваш город:
+                        </div>
+                        <div class="choose-city-container-body">
+                            Санкт-Петербург
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="button -blue-bg">Да, я здесь</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="button -blue-border --js--popup" data-popup="choose-city" >Указать другой</a>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                    <nav class="top-header-menu-body" data-da="js--menu-mobile,2,991">
+                        <ul class="top-header-menu-list" >
+                            <li><a href="/payment.html">Оплата</a></li>
+                            <li><a href="/delivery.html">Доставка</a></li>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Частые вопросы</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+
+            <div class="header-wrapper" >
+
+                <a class="header-logo" href="/">
+                    <img src="../../images/logo.svg" alt="">
+                </a>
+
+                <div class="header-mobile-icons" :class="{ 'open' : searchButton }">
+
+                    <div class="header-mobile-icons-wrapper --phone" >
+                        <a href="tel:+79651435345">
+                            <svg class="header-mobile-icons-phone">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- При клике на header-mobile-icons-wrapper добавляется клас open для  header-mobile-icons  это нужно чтобы спрятать иконку телефона -->
+
+                    <div class="header-mobile-icons-wrapper" @click.prevent="searchButton = !searchButton">
+                        <template x-if="searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#xmark-solid" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                        <template x-if="!searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#search" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                    </div>
+                </div>
+
+
+                <div  @click.prevent="menu = !menu" @click.away="menu = false" class="hamburger hamburger--collapse" :class="{ 'is-active' : menu , 'is-no-active' : !menu}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+                    <div class="hamburger-text">
+                        Каталог
+                    </div>
+                </div>
+
+                <div class="header-search-wrapper" :class="{ 'open' : searchButton }">
+                    <form class="nosubmit" @click.prevent="search = !search" @click.away="search = false">
+                        <input class="nosubmit header-search-wrapper-input" type="text" placeholder="Поиск по оборудованию">
+                    </form>
+                </div>
+
+                <!-- При клике на header-search-wrapper добавляается клас -open для header-search-lists-wrapper и header-search-lists-container. Логику можно изменить к примеру при поиске если есть значения то добавляются классы -open и отображаются значения. Также добавляется клас open для header-search-wrapper чтобы показалось меню.  -->
+
+                <div class="header-search-lists-wrapper" :class="{ '-open' : search }">
+                    <div class="header-search-lists-container" :class="{ '-open' : search }">
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <div class="header-search-item">
+                            Нет результатов
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="tel:79651435345" class="icon-left -phone" data-da="js--menu-mobile,1,991">
+                    <svg>
+                        <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                    </svg>
+                    +7 (965) 143-53-45
+                </a>
+
+
+                <nav class="header-menu-body" :class="{ '-open' : menu }">
+                    <div class="header-menu-list" :class="{ '-open' : menu }">
+                        <div class="row">
+
+                            <div class="col-md-4 col-6">
+                                <a href="/" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n1.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n1.svg" alt="">
+
+                                    <span>Тепловые насосы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n2.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n2.svg" alt="">
+                                    <span>Инверторные сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n3.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n3.svg" alt="">
+                                    <span>Вентиляция</span>
+                                </a>
+                            </div>
+
+
+
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n4.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n4.svg" alt="">
+                                    <span>Полупромышленные
+                                    кондиционеры</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n5.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n5.svg" alt="">
+                                    <span>Бытовые сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n6.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n6.svg" alt="">
+                                    <span>Мульти сплит- системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row ">
+                                    <img class="cat-menu-item-desk" src="images/n7.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n7.svg" alt="">
+                                    <span>Wi-Fi модули и аксессуары</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="js--menu-mobile -menu-mobile"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 first-block">
+                <div class="first-block-title">Гарантия и возврат товара</div>
+                <p>Мы отвечаем за качество оборудования и всегда готовы помочь в гарантийных случаях.</p>
+            </div>
+        </div>
+        <div class="row container1">
+            <div class="col-md-6">
+                <div class="col-md-12 second-block">
+                    <div class="block-title">Гарантия</div>
+                    <div class="blocks-container">
+                        <div class="block">
+                            <p>Наша помощь</p>
+                            <ul>
+                                <li>Поможем оформить заявку в АСЦ</li>
+                                <li>Проконтролируем сроки ремонта</li>
+                                <li>Подскажем, как действовать в сложных случаях</li>
+                            </ul>
+                        </div>
+                        <img class="desktop-image" src="images/settings-img.png" alt="settings image">
+                        <img class="mobile-image" src="images/settings-mobile.png" alt="settings image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 right-block">
+                <div class="block-no-bg">
+                    <p>Срок гарантии</p>
+                    <p>Гарантийный срок указан в карточке товара и инструкции</p>
+                    <p>Гарантийный ремонт</p>
+                    <p>При возникновении проблемы:</p>
+                    <ul>
+                        <li>Напишите нам мы поможем решить проблему или организовать выезд авторизованного сервисного центра (АСЦ)</li>
+                        <li>Поможем организовать ремонт и будем на связи на всех этапах.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row container2">
+            <div class="col-md-6">
+                <h3>Возврат и обмен товара</h3>
+                <p>Вы можете вернуть или обменять товар в течение <b>14 дней</b> (если он не входит в список исключений)</p>
+            </div>
+        </div>
+        <div class="row container3">
+            <div class="col-md-6">
+                <div class="box-container">
+                    <img src="images/box-success.png" alt="image">
+                    <div>
+                        <p>Условия возврата</p>
+                        <ul>
+                            <li>- Товар не монтировался и не использовался.</li>
+                            <li>- Полная комплектация и сохранность упаковки.</li>
+                            <li>- Наличие документа о покупке (чек, накладная)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box-container">
+                    <img src="images/box-x.png" alt="image">
+                    <div>
+                        <p>Товары, которые нельзя вернуть</p>
+                        <ul>
+                            <li>- Оборудование, изготовленное по индивидуальному заказу.</li>
+                            <li>- Товары, импортированные специально для вас.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container4">
+            <div class="heading"></div>
+            <div class="order-steps">
+                <div class="order-step">Товар проверяется в АСЦ</div>
+                <img src="images/arrow-right.svg" alt="arrow">
+                <div class="order-step">Если всё в порядке — возвращаем деньги</div>
+                <img src="images/arrow-right.svg" alt="arrow">
+                <div class="order-step">Если есть повреждения — товар возвращается вам &nbsp;<span>(расходы на экспертизу и перевозку оплачивает покупатель)</span></div>
+            </div>
+        </div>
+        <div class="row last-container">
+            <div class="col-md-6">
+                <p>Контакты для гарантийных вопросов</p>
+                <div class="contact-info">
+                    <a href="tel:+79651435345">
+                        <img src="images/phonee.svg" alt="phone icon">
+                        +7 (965) 143-53-45 (отдел гарантии)
+                    </a>
+                    <a href="mailto:office@iklimat.pro">
+                        <img src="images/mail-icon.svg" alt="phone icon">
+                        office@iklimat.pro
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="block">
+                    <p>Важно знать!</p>
+                    <ul>
+                        <li>Перед возвратом свяжитесь с нами — мы подскажем, как правильно оформить заявку.</li>
+                        <li>Если возник спорный случай — мы постараемся найти справедливое решение.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <a href="" class="footer-logo">
+                            <img src="../images/logo.svg" alt="">
+                        </a>
+                        <div class="footer-contakt">
+                            <a class="footer-phone" href="tel:+79651435345">+7 (965) 143-53-45</a>
+                            <a class="footer-email" href="mailto:office@iklimat.pro">office@iklimat.pro</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xs-6 col-12">
+                        <div class="footer-title">Покупателям</div>
+                        <ul class="footer-nav -column-2">
+                            <li><a href="">Часто задаваемые вопросы</a></li>
+                            <li><a href="">Гарантия и возврат</a></li>
+                            <li><a href="">Доставка</a></li>
+                            <li><a href="">Оплата</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-2 col-xs-6 col-12">
+                        <div class="footer-title">О компании</div>
+                        <ul class="footer-nav">
+                            <li><a href="">Сертификаты качества</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-3 footer-sotial-media-wrapper">
+                        <div class="sotial-media">
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/yam.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/ozon.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/sberm.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/avito.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-policy">
+            <div class="container">
+                <span>© iKlimat 2023 | </span>
+                <span>Все права защищены | </span>
+                <a href="#">Политика конфиденциальности | </a>
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
