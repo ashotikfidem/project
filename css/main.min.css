@@ -8740,6 +8740,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             margin: 0 0 20px 14px;
 
             li {
+                font-size: 16px;
                 position: relative;
             }
 
@@ -8792,8 +8793,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
     .container2 {
-        margin-bottom: 80px;
-
         .row-title {
             color: #000;
             font-size: 18px;
@@ -8913,7 +8912,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             padding: 20px 50px;
             border-radius: 22px;
             margin-left: 100px;
-            box-shadow: 0 0 4px 8px rgba(243, 247, 250, 1);
+            border: 6px solid #F3F7FA;
         }
     }
 
@@ -8924,10 +8923,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             gap: 34px;
             display: flex;
             align-items: center;
-
-            img {
-                height: 46px;
-            }
 
             p {
                 font-size: 20px;
@@ -9044,6 +9039,14 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     .container1 {
         margin-bottom: 80px;
+
+        .col-md-6:first-child {
+            padding-right: 25px;
+        }
+
+        .col-md-6:last-child {
+            padding-left: 25px;
+        }
     }
 
     .first-block {
@@ -9214,6 +9217,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             p {
                 font-size: 16px;
                 font-weight: 700;
+                margin-bottom: 8px;
             }
 
             ul {
@@ -9223,6 +9227,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 li {
                     font-size: 16px;
                     font-weight: 400;
+                    margin-bottom: 4px;
                 }
             }
         }
@@ -9260,6 +9265,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
     .container4 {
         margin-bottom: 70px;
+
+        .heading {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
 
         .order-steps {
             gap: 12px;
@@ -9309,6 +9320,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         }
 
         .container4 {
+            .heading {
+                font-size: 18px;
+            }
+
             .order-steps {
                 flex-direction: column;
 
@@ -9341,6 +9356,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         }
 
         .container1 {
+            .col-md-6 {
+                padding: 0 12px !important;
+            }
+
             .blocks-container {
                 padding: 24px 0 40px 24px;
                 justify-content: space-between;
