@@ -8434,6 +8434,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             margin-left: 14px;
 
             li {
+                font-size: 16px;
                 position: relative;
             }
 
@@ -8540,6 +8541,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
         .track_order_container {
             gap: 36px;
+            display: flex;
+            flex-wrap: wrap;
 
             .order_type {
                 display: flex;
