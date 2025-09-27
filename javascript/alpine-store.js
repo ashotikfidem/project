@@ -31,6 +31,18 @@ document.addEventListener('alpine:init', () => {
 		}
 	});
 
+	const allCerts = document.querySelectorAll('#certificatesCarouselDesktop img, #certificatesCarouselMobile img');
+	allCerts.forEach((img, index) => {
+		img.addEventListener('click', () => {
+			const modalCarousel = document.querySelector('#certCarouselModal');
+			const carouselInstance = bootstrap.Carousel.getOrCreateInstance(modalCarousel);
+			carouselInstance.to(index);
+			const certModal = new bootstrap.Modal(document.getElementById('certModal'));
+			certModal.show();
+		});
+	});
+
+
 
 	Alpine.store('chooseCity', {
 		on: false,

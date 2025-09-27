@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>iklimat</title>
+</head>
+
+<body x-data="{ menu: 0}" :class="{ 'lock' : menu}" >
+<div class="page-about-company">
+    <header
+            class="header"
+            :class="{
+        '-open-menu': menu,
+        '-open-search': search
+    }"
+            x-data="{ menu: false, searchButton: false, search: false }"
+    >
+        <div class="header-top-wrapper" >
+            <div class="container">
+                <div class="header-top-block">
+                <span class="choose-city-icon icon-left" data-da="js--menu-mobile,0,991" x-data  >
+                    <span @click="$store.chooseCity.toggle();">
+                        <svg >
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#map" aria-hidden="true"></use>
+                        </svg>
+                        Санкт-Петербург
+                    </span>
+
+                    <div class="choose-city-container" x-transition x-show="$store.chooseCity.on" x-cloak>
+                        <div class="choose-city-container-close" @click="$store.chooseCity.close();"></div>
+                        <div class="choose-city-container-header">
+                            Ваш город:
+                        </div>
+                        <div class="choose-city-container-body">
+                            Санкт-Петербург
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="button -blue-bg">Да, я здесь</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="button -blue-border --js--popup" data-popup="choose-city" >Указать другой</a>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                    <nav class="top-header-menu-body" data-da="js--menu-mobile,2,991">
+                        <ul class="top-header-menu-list" >
+                            <li><a href="/payment.html">Оплата</a></li>
+                            <li><a href="/delivery.html">Доставка</a></li>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Частые вопросы</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+
+            <div class="header-wrapper" >
+
+                <a class="header-logo" href="/">
+                    <img src="../../images/logo.svg" alt="">
+                </a>
+
+                <div class="header-mobile-icons" :class="{ 'open' : searchButton }">
+
+                    <div class="header-mobile-icons-wrapper --phone" >
+                        <a href="tel:+79651435345">
+                            <svg class="header-mobile-icons-phone">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- При клике на header-mobile-icons-wrapper добавляется клас open для  header-mobile-icons  это нужно чтобы спрятать иконку телефона -->
+
+                    <div class="header-mobile-icons-wrapper" @click.prevent="searchButton = !searchButton">
+                        <template x-if="searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#xmark-solid" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                        <template x-if="!searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#search" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                    </div>
+                </div>
+
+
+                <div  @click.prevent="menu = !menu" @click.away="menu = false" class="hamburger hamburger--collapse" :class="{ 'is-active' : menu , 'is-no-active' : !menu}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+                    <div class="hamburger-text">
+                        Каталог
+                    </div>
+                </div>
+
+                <div class="header-search-wrapper" :class="{ 'open' : searchButton }">
+                    <form class="nosubmit" @click.prevent="search = !search" @click.away="search = false">
+                        <input class="nosubmit header-search-wrapper-input" type="text" placeholder="Поиск по оборудованию">
+                    </form>
+                </div>
+
+                <!-- При клике на header-search-wrapper добавляается клас -open для header-search-lists-wrapper и header-search-lists-container. Логику можно изменить к примеру при поиске если есть значения то добавляются классы -open и отображаются значения. Также добавляется клас open для header-search-wrapper чтобы показалось меню.  -->
+
+                <div class="header-search-lists-wrapper" :class="{ '-open' : search }">
+                    <div class="header-search-lists-container" :class="{ '-open' : search }">
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <div class="header-search-item">
+                            Нет результатов
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="tel:79651435345" class="icon-left -phone" data-da="js--menu-mobile,1,991">
+                    <svg>
+                        <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                    </svg>
+                    +7 (965) 143-53-45
+                </a>
+
+
+                <nav class="header-menu-body" :class="{ '-open' : menu }">
+                    <div class="header-menu-list" :class="{ '-open' : menu }">
+                        <div class="row">
+
+                            <div class="col-md-4 col-6">
+                                <a href="/" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n1.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n1.svg" alt="">
+
+                                    <span>Тепловые насосы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n2.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n2.svg" alt="">
+                                    <span>Инверторные сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n3.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n3.svg" alt="">
+                                    <span>Вентиляция</span>
+                                </a>
+                            </div>
+
+
+
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n4.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n4.svg" alt="">
+                                    <span>Полупромышленные
+                                    кондиционеры</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n5.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n5.svg" alt="">
+                                    <span>Бытовые сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n6.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n6.svg" alt="">
+                                    <span>Мульти сплит- системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row ">
+                                    <img class="cat-menu-item-desk" src="images/n7.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n7.svg" alt="">
+                                    <span>Wi-Fi модули и аксессуары</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="js--menu-mobile -menu-mobile"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row container1">
+            <div class="col-md-12 page-heading">
+                <h1>Официальный поставщик климатической техники в России с <span>2020 </span>года</h1>
+                <p>Продаем, доставляем и устанавливаем оборудование от 15+ мировых брендов с гарантией</p>
+                <div class="buttons-cotnainer">
+                    <button>Подобрать оборудование</button>
+                    <button>Заказать обратный звонок</button>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="gallery-grid">
+<!--                &lt;!&ndash; Левая большая упаковка &ndash;&gt;-->
+<!--                <div class="item item-box-big">-->
+<!--                    <img src="img/box-big.jpg" alt="Упаковка кондиционеров">-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Верхний ряд (справа от упаковки) &ndash;&gt;-->
+<!--                <div class="item"><img src="img/unit1.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/room1.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/box-cat.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/workplace.jpg" alt=""></div>-->
+
+<!--                &lt;!&ndash; Нижний ряд &ndash;&gt;-->
+<!--                <div class="item"><img src="img/outdoor-dog.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/indoor1.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/remote-kids.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/outdoor-wall1.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/outdoor-wall2.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/livingroom.jpg" alt=""></div>-->
+<!--                <div class="item"><img src="img/open-panel.jpg" alt=""></div>-->
+                <div class="item"><img src="/images/gallery.png" alt=""></div>
+            </div>
+        </div>
+        <div class="row container3">
+            <div class="block">
+                <img src="/images/diller.png" alt="">
+                <div class="title">Официальный дилер</div>
+                <p>Работаем напрямую с производителями — никаких серых поставок.</p>
+            </div>
+            <div class="block">
+                <img src="images/garant.png" alt="">
+                <div class="title">Гарантия до 5 лет</div>
+                <p>Ремонт в авторизованных сервисных центрах.</p>
+            </div>
+            <div class="block">
+                <img src="/images/official.png" alt="">
+                <div class="title">Профессиональный подбор</div>
+                <p>Поможем выбрать технику под ваши квадратные метры и бюджет.</p>
+            </div>
+            <div class="block">
+                <img src="/images/opt.png" alt="">
+                <div class="title">Скидки оптовым клиентам</div>
+                <p>Специальные условия для строительных компаний и партнеров.</p>
+            </div>
+        </div>
+        <div class="row container4">
+            <div class="title">Этапы работы</div>
+            <div class="col-md-3">
+                <div class="block">
+                    <img src="/images/payment/first.png" alt="">
+                    <div>
+                        <p>Заявка</p>
+                        <p>Консультация менеджера</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <img src="/images/payment/second.png" alt="">
+                    <div>
+                        <p>Подбор</p>
+                        <p>Помощь в выборе модели</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/gpt-man.png" alt="">
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <img src="/images/payment/third.png" alt="">
+                    <div>
+                        <p>Покупка</p>
+                        <p>Оформление и оплата</p>
+                    </div>
+                </div>
+                <div class="block">
+                    <img src="/images/payment/four.png" alt="">
+                    <div>
+                       <p>Доставка</p>
+                        <p>Отправка со склада</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container5">
+            <div class="title">Отзывы</div>
+            <div id="reviewsCarouselDesktop" class="carousel slide desktop-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item active">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators mt-3">
+                    <button type="button" data-bs-target="#reviewsCarouselDesktop" data-bs-slide-to="0" class="active slider-btn"></button>
+                    <button type="button" data-bs-target="#reviewsCarouselDesktop" data-bs-slide-to="1" class="slider-btn"></button>
+                </div>
+            </div>
+            <div id="reviewsCarouselMobile" class="carousel slide mobile-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex gap-3">
+                            <div class="review-card flex-fill p-3 border rounded ">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators mt-3">
+                    <button type="button" data-bs-target="#reviewsCarouselMobile" data-bs-slide-to="0" class="active slider-btn"></button>
+                    <button type="button" data-bs-target="#reviewsCarouselMobile" data-bs-slide-to="1" class="slider-btn"></button>
+                    <button type="button" data-bs-target="#reviewsCarouselMobile" data-bs-slide-to="3" class="slider-btn"></button>
+                    <button type="button" data-bs-target="#reviewsCarouselMobile" data-bs-slide-to="4" class="slider-btn"></button>
+                </div>
+            </div>
+            <div class="container6">
+                <div class="title">Мы работаем официально</div>
+                <p class="description">Все оборудование соответствует ГОСТ и имеет гарантию производителя</p>
+                <div id="certificatesCarouselDesktop" class="carousel slide desktop-carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center gap-3">
+                                <img src="/images/certificate1.png" class="d-block" alt="Certificate 1">
+                                <img src="/images/certificate2.png" class="d-block" alt="Certificate 2">
+                                <img src="/images/certificate3.png" class="d-block" alt="Certificate 3">
+                                <img src="/images/certificate4.png" class="d-block" alt="Certificate 4">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center gap-3">
+                                <img src="/images/certificate1.png" class="d-block" alt="Certificate 5">
+                                <img src="/images/certificate2.png" class="d-block" alt="Certificate 6">
+                                <img src="/images/certificate3.png" class="d-block" alt="Certificate 7">
+                                <img src="/images/certificate4.png" class="d-block" alt="Certificate 8">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev control-btn" type="button" data-bs-target="#certificatesCarouselDesktop" data-bs-slide="prev">
+                        <img src="/images/arr-prev.svg" alt="">
+                    </button>
+                    <button class="carousel-control-next control-btn" type="button" data-bs-target="#certificatesCarouselDesktop" data-bs-slide="next">
+                        <img src="/images/arr-next.svg" alt="">
+                    </button>
+                </div>
+                <div id="certificatesCarouselMobile" class="carousel slide mobile-carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center d-md-flex gap-3">
+                                <img src="/images/certificate1.png" class="d-block" alt="Certificate 1">
+                                <img src="/images/certificate2.png" class="d-block" alt="Certificate 2">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center d-md-flex gap-3">
+                                <img src="/images/certificate3.png" class="d-block" alt="Certificate 3">
+                                <img src="/images/certificate4.png" class="d-block" alt="Certificate 4">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev control-btn" type="button" data-bs-target="#certificatesCarouselMobile" data-bs-slide="prev">
+                        <img src="/images/arr-prev.svg" alt="">
+                    </button>
+                    <button class="carousel-control-next control-btn" type="button" data-bs-target="#certificatesCarouselMobile" data-bs-slide="next">
+                        <img src="/images/arr-next.svg" alt="">
+                    </button>
+                </div>
+                <div class="modal fade" id="certModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content bg-transparent border-0">
+                            <div class="modal-body p-0 position-relative">
+                                <div id="certCarouselModal" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="/images/certificate1.png" class="d-block w-100" alt="Certificate 1">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/certificate2.png" class="d-block w-100" alt="Certificate 2">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/certificate3.png" class="d-block w-100" alt="Certificate 3">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="/images/certificate4.png" class="d-block w-100" alt="Certificate 4">
+                                        </div>
+                                    </div>
+
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#certCarouselModal" data-bs-slide="prev">
+                                        <img src="/images/arr-prev.svg" alt="">
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#certCarouselModal" data-bs-slide="next">
+                                        <img src="/images/arr-next.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container7">
+                <div class="title">Наши бренды</div>
+                <p class="description">Работаем с ведущими производителями климатической техники</p>
+                <div class="brands">
+                    <div class="block"><img src="/images/brand1.png" alt=""></div>
+                    <div class="block"><img src="/images/brand2.png" alt=""></div>
+                    <div class="block"><img src="/images/brand3.png" alt=""></div>
+                    <div class="block"><img src="/images/brand4.png" alt=""></div>
+                    <div class="block"><img src="/images/brand5.png" alt=""></div>
+                    <div class="block"><img src="/images/brand6.png" alt=""></div>
+                    <div class="block"><img src="/images/brand7.png" alt=""></div>
+                    <div class="block"><img src="/images/brand8.png" alt=""></div>
+                    <div class="block"><img src="/images/brand9.png" alt=""></div>
+                    <div class="block"><img src="/images/brand10.png" alt=""></div>
+                    <div class="block"><img src="/images/brand11.png" alt=""></div>
+                    <div class="block"><img src="/images/brand12.png" alt=""></div>
+                    <div class="block"><img src="/images/brand13.png" alt=""></div>
+                </div>
+            </div>
+            <div class="row container8">
+                <div class="col-md-4">
+                    <div class="title">Контакты</div>
+                    <a href="tel:79651435345" class="link">
+                        <span>
+                            <svg>
+                            <use xlink:href="/images/call-icon.svg" aria-hidden="true"></use>
+                        </svg>
+                        </span>
+                        +7 (965) 143-53-45
+                    </a>
+                    <a href="mailto:office@iklimat.pro" class="link">
+                        <span>
+                            <svg>
+                            <use xlink:href="/images/mail-icon.svg" aria-hidden="true"></use>
+                        </svg>
+                        </span>
+                        office@iklimat.pro
+                    </a>
+
+                    <div class="link">
+                        <span>
+                            <svg>
+                            <use xlink:href="/images/location.svg" aria-hidden="true"></use>
+                        </svg>
+                        </span>
+                        Адрес главного склада: Витебский проспект, д.16
+                    </div>
+                    <div class="mail-title">Написать директору</div>
+                    <a class="mail-link" href="mailto:vitaliy@iklimat.pro">
+                        vitaliy@iklimat.pro
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2003.1759417676997!2d30.35644277730853!3d59.8628246682032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962ff8a9f66a8f%3A0x33bad9eadc3bc31c!2sParking%20lot%2C%20Vitebskiy%20Prospekt%2C%2016%2C%20Sankt-Peterburg%2C%20Russia%2C%20196233!5e0!3m2!1sen!2sam!4v1758928014032!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="mobile-text">
+                        <div class="address">
+                            <svg>
+                                <use xlink:href="/images/location.svg" aria-hidden="true"></use>
+                            </svg>
+                            Адрес: СПБ, Витебский проспект, д.16
+                        </div>
+                        <p>Самовывоз: можно забрать заказ самостоятельно — уточните наличие у менеджера</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <a href="" class="footer-logo">
+                            <img src="../images/logo.svg" alt="">
+                        </a>
+                        <div class="footer-contakt">
+                            <a class="footer-phone" href="tel:+79651435345">+7 (965) 143-53-45</a>
+                            <a class="footer-email" href="mailto:office@iklimat.pro">office@iklimat.pro</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xs-6 col-12">
+                        <div class="footer-title">Покупателям</div>
+                        <ul class="footer-nav -column-2">
+                            <li><a href="">Часто задаваемые вопросы</a></li>
+                            <li><a href="">Гарантия и возврат</a></li>
+                            <li><a href="">Доставка</a></li>
+                            <li><a href="">Оплата</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-2 col-xs-6 col-12">
+                        <div class="footer-title">О компании</div>
+                        <ul class="footer-nav">
+                            <li><a href="">Сертификаты качества</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-3 footer-sotial-media-wrapper">
+                        <div class="sotial-media">
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/yam.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/ozon.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/sberm.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/avito.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-policy">
+            <div class="container">
+                <span>© iKlimat 2023 | </span>
+                <span>Все права защищены | </span>
+                <a href="#">Политика конфиденциальности | </a>
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<script src="javascript/alpine.js" defer></script>
+<script src="javascript/alpine-store.js"></script>
+<script src="javascript/script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
