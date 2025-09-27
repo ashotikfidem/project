@@ -9481,8 +9481,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             text-decoration: none;
 
             svg {
-                width: 24px;
-                height: 24px;
+                width: unset;
+                height: unset;
             }
         }
 
@@ -10154,8 +10154,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             text-decoration: none;
 
             svg {
-                width: 30px;
-                height: 24px;
+                width: unset;
+                height: unset;
             }
         }
 
