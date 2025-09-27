@@ -10320,9 +10320,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             margin-bottom: 80px;
 
             .brands {
+                gap: 8px;
+
                 .block {
                     max-height: 48px;
                     max-width: 165px;
+                    margin-bottom: 4px;
                 }
             }
         }
