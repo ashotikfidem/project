@@ -10711,6 +10711,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             }
 
             button {
+                color: #000;
                 border: none;
                 padding: 0;
                 font-size: 14px;
@@ -10722,6 +10723,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
         .show-all {
             width: 100%;
+            color: #000;
             height: 40px;
             display: flex;
             background: #fff;
