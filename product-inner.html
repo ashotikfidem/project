@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>iklimat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body x-data="{ menu: 0}" :class="{ 'lock' : menu}" >
+<div class="page-product-inner">
+    <header
+            class="header"
+            :class="{
+        '-open-menu': menu,
+        '-open-search': search
+    }"
+            x-data="{ menu: false, searchButton: false, search: false }"
+    >
+        <div class="header-top-wrapper" >
+            <div class="container">
+                <div class="header-top-block">
+                <span class="choose-city-icon icon-left" data-da="js--menu-mobile,0,991" x-data  >
+                    <span @click="$store.chooseCity.toggle();">
+                        <svg >
+                            <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#map" aria-hidden="true"></use>
+                        </svg>
+                        Санкт-Петербург
+                    </span>
+
+                    <div class="choose-city-container" x-transition x-show="$store.chooseCity.on" x-cloak>
+                        <div class="choose-city-container-close" @click="$store.chooseCity.close();"></div>
+                        <div class="choose-city-container-header">
+                            Ваш город:
+                        </div>
+                        <div class="choose-city-container-body">
+                            Санкт-Петербург
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="button -blue-bg">Да, я здесь</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="button -blue-border --js--popup" data-popup="choose-city" >Указать другой</a>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                    <nav class="top-header-menu-body" data-da="js--menu-mobile,2,991">
+                        <ul class="top-header-menu-list" >
+                            <li><a href="/payment.html">Оплата</a></li>
+                            <li><a href="/delivery.html">Доставка</a></li>
+                            <li><a href="/about-company.html">О компании</a></li>
+                            <li><a href="#">Частые вопросы</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+
+            <div class="header-wrapper" >
+
+                <a class="header-logo" href="/">
+                    <img src="../../images/logo.svg" alt="">
+                </a>
+
+                <div class="header-mobile-icons" :class="{ 'open' : searchButton }">
+
+                    <div class="header-mobile-icons-wrapper --phone" >
+                        <a href="tel:+79651435345">
+                            <svg class="header-mobile-icons-phone">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- При клике на header-mobile-icons-wrapper добавляется клас open для  header-mobile-icons  это нужно чтобы спрятать иконку телефона -->
+
+                    <div class="header-mobile-icons-wrapper" @click.prevent="searchButton = !searchButton">
+                        <template x-if="searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#xmark-solid" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                        <template x-if="!searchButton">
+                            <svg class="header-mobile-icons-search">
+                                <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#search" aria-hidden="true"></use>
+                            </svg>
+                        </template>
+                    </div>
+                </div>
+
+
+                <div  @click.prevent="menu = !menu" @click.away="menu = false" class="hamburger hamburger--collapse" :class="{ 'is-active' : menu , 'is-no-active' : !menu}">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+                    <div class="hamburger-text">
+                        Каталог
+                    </div>
+                </div>
+
+                <div class="header-search-wrapper" :class="{ 'open' : searchButton }">
+                    <form class="nosubmit" @click.prevent="search = !search" @click.away="search = false">
+                        <input class="nosubmit header-search-wrapper-input" type="text" placeholder="Поиск по оборудованию">
+                    </form>
+                </div>
+
+                <!-- При клике на header-search-wrapper добавляается клас -open для header-search-lists-wrapper и header-search-lists-container. Логику можно изменить к примеру при поиске если есть значения то добавляются классы -open и отображаются значения. Также добавляется клас open для header-search-wrapper чтобы показалось меню.  -->
+
+                <div class="header-search-lists-wrapper" :class="{ '-open' : search }">
+                    <div class="header-search-lists-container" :class="{ '-open' : search }">
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="header-search-item">
+                            <div class="header-search-item-image _pic-fluid">
+                                <img src="images/item-card-image.png" alt="">
+                            </div>
+                            <div class="header-search-item-desk">
+                                Сплит-система Ballu Olympio Legend BSW-30HN1_24Y комплект
+                            </div>
+                            <div class="header-search-item-price">
+                                46 690
+                                <svg>
+                                    <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#rub" aria-hidden="true"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <div class="header-search-item">
+                            Нет результатов
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="tel:79651435345" class="icon-left -phone" data-da="js--menu-mobile,1,991">
+                    <svg>
+                        <use xlink:href="/images/svg-sprite/symbol/svg/sprite.symbol.svg#phone" aria-hidden="true"></use>
+                    </svg>
+                    +7 (965) 143-53-45
+                </a>
+
+
+                <nav class="header-menu-body" :class="{ '-open' : menu }">
+                    <div class="header-menu-list" :class="{ '-open' : menu }">
+                        <div class="row">
+
+                            <div class="col-md-4 col-6">
+                                <a href="/" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n1.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n1.svg" alt="">
+
+                                    <span>Тепловые насосы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n2.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n2.svg" alt="">
+                                    <span>Инверторные сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -three-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n3.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n3.svg" alt="">
+                                    <span>Вентиляция</span>
+                                </a>
+                            </div>
+
+
+
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n4.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n4.svg" alt="">
+                                    <span>Полупромышленные
+                                    кондиционеры</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n5.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n5.svg" alt="">
+                                    <span>Бытовые сплит-системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row">
+                                    <img class="cat-menu-item-desk" src="images/n6.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n6.svg" alt="">
+                                    <span>Мульти сплит- системы</span>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="#" class="cat-menu-item _pic-fluid -for-in-row ">
+                                    <img class="cat-menu-item-desk" src="images/n7.svg" alt="">
+                                    <img class="cat-menu-item-mobile" src="images/n7.svg" alt="">
+                                    <span>Wi-Fi модули и аксессуары</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="js--menu-mobile -menu-mobile"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="product-gallery col-md-6">
+                <h1 class="mobile-product-name">Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverter 2023</h1>
+                <input class="gallery-radio" type="radio" name="gallery" id="img1" checked hidden>
+                <input class="gallery-radio" type="radio" name="gallery" id="img2" hidden>
+                <input class="gallery-radio" type="radio" name="gallery" id="img3" hidden>
+                <input class="gallery-radio" type="radio" name="gallery" id="img4" hidden>
+                <div class="big-image border mb-3">
+                    <img src="/images/product-image-1.png" class="img-fluid" alt="Product image 1">
+                    <img src="/images/product-image-2.png" class="img-fluid" alt="Product image 2">
+                    <img src="/images/product-image-1.png" class="img-fluid" alt="Product image 3">
+                    <img src="/images/product-image-2.png" class="img-fluid" alt="Product image 4">
+                </div>
+                <div class="d-flex gallery-preview">
+                    <label for="img1">
+                        <img src="/images/product-image-1.png" class="img-thumbnail thumb" alt="Thumbnail 1">
+                    </label>
+                    <label for="img2">
+                        <img src="/images/product-image-2.png" class="img-thumbnail thumb" alt="Thumbnail 2">
+                    </label>
+                    <label for="img3">
+                        <img src="/images/product-image-1.png" class="img-thumbnail thumb" alt="Thumbnail 3">
+                    </label>
+                    <label for="img4">
+                        <img src="/images/product-image-2.png" class="img-thumbnail thumb" alt="Thumbnail 4">
+                    </label>
+                </div>
+            </div>
+            <div class="product-info col-md-6">
+                <div>
+                    <h1>Hisense AS-13UW4RVETG01(S) SILVER CRYSTAL SUPER DC Inverter 2023</h1>
+                    <div class="sku-container">
+                        <div class="sku">Арт: SF0021</div>
+                        4,8
+                        <i class="bi bi-star-fill star-gold"></i>
+                    </div>
+                </div>
+                <div class="size-container">
+                    <p>Для помещения площадью, м2</p>
+                    <div class="options-wrapper">
+                        <div class="options">
+                            <div>20</div>
+                            <div class="selected">25</div>
+                            <div>30</div>
+                            <div>35</div>
+                            <div class="disabled">40</div>
+                            <div>45</div>
+                            <div>50</div>
+                            <div>55</div>
+                            <div>60</div>
+                            <div>65</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-block">
+                    <div class="prices">
+<!--                        обычный прайс-->
+<!--                        <div class="price">59 990 ₽</div>-->
+
+                        <div class="new-price">59 990 ₽</div>
+                        <div class="old-price">79 500 ₽</div>
+                    </div>
+                    <div class="instock">
+                        <span></span>
+                        <p>В наличии</p>
+                    </div>
+                    <button>Оформить заказ</button>
+                </div>
+                <div class="features">
+                    <p>Характеристики:</p>
+                    <div class="features-block">
+                        <div>Класс энергоэффективности: А+</div>
+                        <div>Инверторная технология: Да</div>
+                        <div>Гарантия: 3 года</div>
+                        <div>Инверторная технология: А+</div>
+                        <div>Wi-fi: Опция (приобретается отдельно)</div>
+                        <a href="">Все характеристики</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-content">
+            <input type="radio" name="tabs" id="tab1" checked hidden>
+            <input type="radio" name="tabs" id="tab2" hidden>
+            <input type="radio" name="tabs" id="tab3" hidden>
+            <input type="radio" name="tabs" id="tab4" hidden>
+
+            <div class="tabs-wrapper">
+                <div class="tabs">
+                    <label class="tab" for="tab1">Характеристики</label>
+                    <label class="tab" for="tab2">Доставка и оплата</label>
+                    <label class="tab" for="tab3">Описание</label>
+                    <label class="tab" for="tab4">Отзывы <span>(14)</span></label>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-panel" id="content1"></div>
+                <div class="row tab-panel" id="content2">
+                    <div class="blocks col-md-8">
+                        <div class="block">
+                            <div class="heading">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M51.6501 29.6026L41.8762 21.9044V16.6612C41.9283 15.6104 41.5526 14.5822 40.8317 13.8022C40.1108 13.0221 39.1034 12.5538 38.0304 12.5H13.8082C12.7428 12.5644 11.7462 13.0373 11.0343 13.8162C10.3224 14.595 9.95256 15.6172 10.0049 16.6612V37.4674C9.98516 38.2936 10.2171 39.1069 10.6712 39.8035C11.1253 40.5001 11.781 41.0486 12.5546 41.3789C12.1633 42.3163 12.0108 43.3329 12.1102 44.3409C12.2097 45.3489 12.5581 46.3181 13.1255 47.1648C13.6928 48.0115 14.462 48.7104 15.3667 49.201C16.2714 49.6917 17.2844 49.9594 18.3184 49.9811C19.3523 50.0028 20.3762 49.7778 21.3015 49.3255C22.2268 48.8733 23.0259 48.2074 23.6298 47.3852C24.2336 46.5631 24.6241 45.6094 24.7676 44.6065C24.9111 43.6036 24.8032 42.5816 24.4532 41.6286H37.9667C37.6172 42.5714 37.5049 43.5828 37.6393 44.5771C37.7737 45.5714 38.1508 46.5193 38.7386 47.3406C39.3265 48.162 40.1078 48.8325 41.0164 49.2954C41.9251 49.7583 42.9342 50 43.9585 50C44.9827 50 45.9919 49.7583 46.9005 49.2954C47.8091 48.8325 48.5905 48.162 49.1783 47.3406C49.7662 46.5193 50.1433 45.5714 50.2777 44.5771C50.412 43.5828 50.2997 42.5714 49.9503 41.6286H50.3752C50.9388 41.6286 51.4792 41.4094 51.8777 41.0192C52.2761 40.629 52.5 40.0998 52.5 39.548V31.2255C52.4935 30.9096 52.4136 30.5992 52.2663 30.318C52.1191 30.0368 51.9083 29.7922 51.6501 29.6026ZM48.2505 32.2242V37.4674H41.8762V27.2307L48.2505 32.2242ZM20.6287 43.7092C20.6287 44.1207 20.504 44.523 20.2706 44.8651C20.0371 45.2073 19.7053 45.474 19.317 45.6315C18.9288 45.7889 18.5016 45.8301 18.0894 45.7499C17.6772 45.6696 17.2986 45.4714 17.0015 45.1804C16.7043 44.8895 16.502 44.5187 16.42 44.1151C16.338 43.7115 16.3801 43.2932 16.5409 42.913C16.7017 42.5328 16.974 42.2079 17.3235 41.9792C17.6729 41.7506 18.0837 41.6286 18.5039 41.6286C19.0674 41.6286 19.6079 41.8478 20.0063 42.238C20.4048 42.6282 20.6287 43.1574 20.6287 43.7092ZM31.2524 37.4674H14.2544V16.6612H37.6267V37.4674H31.2524ZM46.1257 43.7092C46.1257 44.1207 46.0011 44.523 45.7676 44.8651C45.5342 45.2073 45.2023 45.474 44.8141 45.6315C44.4258 45.7889 43.9986 45.8301 43.5865 45.7499C43.1743 45.6696 42.7957 45.4714 42.4985 45.1804C42.2014 44.8895 41.999 44.5187 41.917 44.1151C41.8351 43.7115 41.8771 43.2932 42.038 42.913C42.1988 42.5328 42.4711 42.2079 42.8205 41.9792C43.1699 41.7506 43.5807 41.6286 44.001 41.6286C44.5645 41.6286 45.1049 41.8478 45.5034 42.238C45.9019 42.6282 46.1257 43.1574 46.1257 43.7092Z" fill="#6598CC" stroke="white" stroke-width="0.7"/>
+                                </svg>
+                                <h3>Доставка</h3>
+                            </div>
+                            <ul>
+                                <li>Доставляем климатическое оборудование по всей России. Отправляем из Санкт-Петербурга и других городов, чтобы вы получили заказ быстрее.</li>
+                                <li>Фиксированная стоимость доставки по СПБ – 2000₽</li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <div class="heading">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.7987 28.0233C34.6304 28.0221 34.4684 28.0901 34.3482 28.2124C34.228 28.3347 34.1592 28.5015 34.157 28.6762V33.5558C34.1592 33.7309 34.2283 33.898 34.349 34.0204C34.4697 34.1428 34.6322 34.2105 34.8009 34.2087H48.9597C49.1285 34.2105 49.291 34.1428 49.4117 34.0204C49.5324 33.898 49.6014 33.7309 49.6036 33.5558V28.6762C49.6014 28.5011 49.5324 28.334 49.4117 28.2116C49.291 28.0892 49.1285 28.0215 48.9597 28.0233H34.7987ZM43.4815 12.5022C45.4408 12.5993 46.8496 13.0008 47.7421 13.8522C48.624 14.6949 49.0766 15.9148 49.1659 17.5296V22.1554C49.1614 22.5494 49.0065 22.9254 48.7351 23.2008C48.4638 23.4763 48.0982 23.6287 47.7188 23.6246C47.5307 23.6269 47.344 23.5908 47.1693 23.5182C46.9947 23.4456 46.8356 23.3381 46.701 23.2016C46.5664 23.0652 46.459 22.9026 46.385 22.7231C46.311 22.5436 46.2717 22.3507 46.2695 22.1554L46.2716 17.6134C46.2249 16.7751 46.0315 16.2545 45.7552 15.9898C45.4875 15.7339 44.6715 15.5045 43.4114 15.4383H15.6249C14.4838 15.4824 13.7421 15.7074 13.383 16.0273C13.1068 16.2722 12.8985 16.9472 12.8964 18.1141L12.89 44.0781C12.9962 45.212 13.2364 45.9687 13.5445 46.3459C13.7782 46.6326 14.5029 46.9194 15.5696 47.0606H43.4411C44.7459 47.0871 45.5151 46.8841 45.7744 46.6128C46.0612 46.3106 46.2695 45.5164 46.2695 44.2171V39.706C46.2695 38.8964 46.9176 38.2368 47.7188 38.2368C48.5177 38.2368 49.1659 38.8964 49.1659 39.706V44.2171C49.1659 46.2025 48.7749 47.6871 47.859 48.6511C46.9155 49.6438 45.4152 50.0408 43.4114 49.9967L15.3975 49.9901C13.4914 49.7607 12.125 49.218 11.3111 48.2187C10.5737 47.3143 10.1636 46.0238 10 44.2193V18.1119C10.0043 16.1795 10.4505 14.7258 11.4748 13.817C12.414 12.9787 13.7698 12.5706 15.5696 12.5H43.4815V12.5022ZM48.9597 25.0849C50.9147 25.0849 52.5 26.6931 52.5 28.6762V33.5558C52.5 35.5389 50.9147 37.1471 48.9597 37.1471H34.8009C32.8459 37.1471 31.2606 35.5367 31.2606 33.5558V28.6762C31.2606 26.6931 32.8459 25.0849 34.8009 25.0849H48.9597ZM38.3411 29.3645C37.3636 29.3645 36.571 30.1586 36.571 31.1359C36.571 32.1153 37.3636 32.9072 38.3411 32.9072C39.3186 32.9072 40.1112 32.1131 40.1112 31.1359C40.1112 30.1564 39.3186 29.3623 38.3411 29.3623V29.3645Z" fill="#6598CC"/>
+                                </svg>
+                                <h3>Оплата</h3>
+                            </div>
+                            <p>Оплатить можно следующими способами:</p>
+                            <ul>
+                                <li>Банковской картой онлайн</li>
+                                <li>По QR-коду через СБП</li>
+                                <li>По расчетному счету (c НДС 20%)</li>
+                            </ul>
+                        </div>
+                        <div class="block">
+                            <div class="heading">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M39.2458 10H20.7542C18.5006 10 17.3747 10 16.4647 10.3169C15.6068 10.6212 14.8305 11.119 14.1962 11.7719C13.5619 12.4248 13.0866 13.2151 12.8072 14.0814C12.5 15.0186 12.5 16.1775 12.5 18.4972V45.7272C12.5 47.3956 14.4153 48.2822 15.6267 47.1739C15.9665 46.8599 16.4123 46.6854 16.875 46.6854C17.3377 46.6854 17.7835 46.8599 18.1233 47.1739L19.0625 48.0333C19.6579 48.5839 20.439 48.8897 21.25 48.8897C22.061 48.8897 22.8421 48.5839 23.4375 48.0333C24.0329 47.4827 24.814 47.1769 25.625 47.1769C26.436 47.1769 27.2171 47.4827 27.8125 48.0333C28.4079 48.5839 29.189 48.8897 30 48.8897C30.811 48.8897 31.5921 48.5839 32.1875 48.0333C32.7829 47.4827 33.564 47.1769 34.375 47.1769C35.186 47.1769 35.9671 47.4827 36.5625 48.0333C37.1579 48.5839 37.939 48.8897 38.75 48.8897C39.561 48.8897 40.3421 48.5839 40.9375 48.0333L41.8767 47.1739C42.2165 46.8599 42.6623 46.6854 43.125 46.6854C43.5877 46.6854 44.0335 46.8599 44.3733 47.1739C45.5847 48.2822 47.5 47.3956 47.5 45.7272V18.4972C47.5 16.1775 47.5 15.0167 47.1928 14.0833C46.9138 13.2166 46.4387 12.4258 45.8043 11.7726C45.17 11.1194 44.3935 10.6212 43.5353 10.3169C42.6253 10 41.4994 10 39.2458 10Z" stroke="#6598CC" stroke-width="3"/>
+                                    <path d="M25.1387 26.3337L27.9173 29.4448L34.8609 21.667" stroke="#6598CC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21.25 36.25H38.75" stroke="#6598CC" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                                <h3>Чек и гарантия</h3>
+                            </div>
+                            <ul>
+                                <li>Чек высылаем в электронном виде в течении 15 мин после вашей оплаты.</li>
+                                <li>При возникновении гарантийного случая, напишите нам - мы поможем решить проблему или организовать выезд авторизованного сервисного центра (АСЦ).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="content3"></div>
+                <div class="row tab-panel" id="content4">
+                    <div class="col-md-8">
+                        <div class="reviews-container">
+                            <div class="review-card flex-fill">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                            </div>
+                            <div class="review-card flex-fill">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!
+                                    Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                            <div class="review-card flex-fill">
+                                <div class="first-row">
+                                    <div class="star-rating">
+                                        <i class="bi bi-star-fill star-gold" data-value="1"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="2"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="3"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="4"></i>
+                                        <i class="bi bi-star-fill star-gold" data-value="5"></i>
+                                    </div>
+                                    <img src="/images/ozon.png" alt="ozon">
+                                </div>
+                                <div class="date">25/08/2015</div>
+                                <div class="card-title">Ballu BSHI-09HN8 Defender DC Inverter для 25м2/ Full DC...</div>
+                                <p>Спасает в жару. Спальня небольшая, охлаждает довольно быстро. Работает тихо, спать не мешает. Можно отключить сильный поток воздуха - и прохладно и не продует. Для спальни идеально!</p>
+                                <button>читать больше</button>
+                            </div>
+                        </div>
+                        <button class="show-all">Загрузить ещё</button>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="average-rating">
+                            <div class="rating">Средняя оценка: <b>5,0</b></div>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill star-gold"></i>
+                                <i class="bi bi-star-fill star-gold"></i>
+                                <i class="bi bi-star-fill star-gold"></i>
+                                <i class="bi bi-star-fill star-gold"></i>
+                                <i class="bi bi-star-fill star-gold"></i>
+                            </div>
+                            <p>Отзывы могут оставлять только те, кто купил товар. Так мы формируем честный рейтинг.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-head">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <a href="" class="footer-logo">
+                            <img src="../images/logo.svg" alt="">
+                        </a>
+                        <div class="footer-contakt">
+                            <a class="footer-phone" href="tel:+79651435345">+7 (965) 143-53-45</a>
+                            <a class="footer-email" href="mailto:office@iklimat.pro">office@iklimat.pro</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xs-6 col-12">
+                        <div class="footer-title">Покупателям</div>
+                        <ul class="footer-nav -column-2">
+                            <li><a href="">Часто задаваемые вопросы</a></li>
+                            <li><a href="">Гарантия и возврат</a></li>
+                            <li><a href="">Доставка</a></li>
+                            <li><a href="">Оплата</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-2 col-xs-6 col-12">
+                        <div class="footer-title">О компании</div>
+                        <ul class="footer-nav">
+                            <li><a href="">Сертификаты качества</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-3 footer-sotial-media-wrapper">
+                        <div class="sotial-media">
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/yam.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/ozon.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/sberm.svg" alt="">
+                            </a>
+                            <a href="#" class="_pic-fluid">
+                                <img src="../../images/avito.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-policy">
+            <div class="container">
+                <span>© iKlimat 2023 | </span>
+                <span>Все права защищены | </span>
+                <a href="#">Политика конфиденциальности | </a>
+                <a href="#">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<script src="javascript/alpine.js" defer></script>
+<script src="javascript/alpine-store.js"></script>
+<script src="javascript/script.min.js"></script>
+
+</body>
+</html>
