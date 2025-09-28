@@ -10463,16 +10463,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 z-index: 2;
             }
 
-            .options-wrapper::before {
-                left: 0;
-                background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-            }
-
-            .options-wrapper::after {
-                right: 0;
-                background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-            }
-
             .options {
                 gap: 8px;
                 display: flex;
@@ -10625,16 +10615,6 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             width: 30px;
             pointer-events: none;
             z-index: 2;
-        }
-
-        .tabs-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        }
-
-        .tabs-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
         }
 
         .tabs {
@@ -10919,6 +10899,18 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 font-size: 14px;
             }
 
+            .size-container {
+                .options-wrapper::before {
+                    left: 0;
+                    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+                }
+
+                .options-wrapper::after {
+                    right: 0;
+                    background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+                }
+            }
+
             .features {
                 font-size: 14px;
 
@@ -10939,6 +10931,16 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 .tab {
                     font-size: 14px;
                 }
+            }
+
+            .tabs-wrapper::before {
+                left: 0;
+                background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            }
+
+            .tabs-wrapper::after {
+                right: 0;
+                background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
             }
 
             .col-md-4 {
