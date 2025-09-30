@@ -8436,13 +8436,15 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             li {
                 font-size: 16px;
                 position: relative;
+                margin-left: 10px;
             }
 
             li::before {
                 content: "•";
                 position: absolute;
-                left: -15px;
+                left: -25px;
                 top: 50%;
+                font-size: 18px;
                 color: #ECA740;
                 transform: translateY(-50%);
             }
@@ -9075,7 +9077,8 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             display: flex;
             border-radius: 9px;
             background: #F3F7FA;
-            padding: 40px 24px;
+            align-items: center;
+            padding: 40px 42px;
 
             .block {
                 padding: unset;
@@ -9113,20 +9116,13 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
         ul {
             list-style: none;
-            margin: 0 0 20px 14px;
+            margin: 0;
 
             li {
+                gap: 10px;
+                display: flex;
                 font-size: 16px;
                 position: relative;
-            }
-
-            li::before {
-                content: "•";
-                position: absolute;
-                left: -15px;
-                top: 50%;
-                color: #ECA740;
-                transform: translateY(-50%);
             }
 
             li:not(:last-child) {
@@ -9279,14 +9275,21 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
             .order-step {
                 padding: 24px;
-                font-size: 18px;
                 text-align: center;
+                display: flex;
                 border-radius: 10px;
                 border: 1px solid #000;
+                align-items: center;
+                justify-content: center;
 
-                span {
-                    color: #878E95;
-                    font-size: 14px;
+                p {
+                    margin: 0;
+                    font-size: 18px;
+
+                    span {
+                        color: #878E95;
+                        font-size: 14px;
+                    }
                 }
             }
 
@@ -9519,6 +9522,35 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             margin-bottom: 20px;
         }
 
+        .map_container {
+            position: relative;
+
+            .address-block {
+                top: 77px;
+                right: 37px;
+                max-width: 246px;
+                width: 100%;
+                padding: 24px 18px;
+                position: absolute;
+                background: #FFFBF6;
+                border-radius: 10px;
+
+                .heading {
+                    gap: 8px;
+                    display: flex;
+                    font-size: 16px;
+                    align-items: center;
+                    margin-bottom: 18px;
+                }
+
+                p {
+                    color: #878E95;
+                    font-size: 16px;
+                    margin: 0 0 0 32px;
+                }
+            }
+        }
+
         iframe {
             width: 100%;
             height: 370px;
@@ -9623,6 +9655,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 border-radius: 15px;
                 margin-bottom: 16px;
                 border: 1px solid #6598CC;
+                font-family: Lato, sans-serif;
             }
 
             .checkbox {
@@ -9737,6 +9770,12 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     }
 
     @media (max-width: 768px) {
+        .map_container {
+            .address-block {
+                display: none !important;
+            }
+        }
+
         .block {
             .block-title {
                 font-size: 22px;
@@ -9989,11 +10028,21 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     }
 
     .container5 {
+
+        .desktop-carousel {
+            margin-bottom: 100px;
+        }
+
+        .mobile-carousel {
+            margin-bottom: 80px;
+        }
+
         .title {
             margin-bottom: 32px;
         }
 
         .review-card {
+            padding: 32px !important;
             background: #F3F7FA;
             border-radius: 15px;
             border: none !important;
@@ -10029,7 +10078,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             margin-bottom: 12px;
 
             .star-gold {
-                color: #ECA740;
+                color: #FFB700;
             }
 
             img {
@@ -10048,6 +10097,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         .card-title {
             font-size: 14px;
             font-weight: 600;
+            margin-bottom: 8px;
         }
 
         p {
@@ -10226,12 +10276,34 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     }
 
     .modal {
+        .carousel-control-prev {
+            left: 80px;
+        }
+
+        .carousel-control-next {
+            right: 80px;
+        }
+
+
         button {
             width: 46px;
             height: 46px;
+            opacity: 1;
             top: calc(50% - 20px);
             border-radius: 4px;
             background: #F3F7FA;
+
+            @media(max-width: 768px) {
+                display: none !important;
+            }
+        }
+
+        .carousel-indicators {
+            @media(max-width: 769px) {
+                button {
+                    display: block !important;
+                }
+            }
         }
 
         img {
@@ -10243,7 +10315,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
     @media(max-width: 768px) {
         .modal {
             img {
-                max-height: 350px;
+                max-height: 400px;
             }
         }
 
@@ -10683,7 +10755,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 margin-bottom: 12px;
 
                 .star-gold {
-                    color: #ECA740;
+                    color: #FFB700;
                 }
 
                 img {
@@ -10702,6 +10774,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             .card-title {
                 font-size: 14px;
                 font-weight: 600;
+                margin-bottom: 8px;
             }
 
             p {
