@@ -9116,7 +9116,17 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
         ul {
             list-style: none;
-            margin: 0;
+            margin: 0 0 0 28px;
+
+            li::before {
+                content: "•";
+                position: absolute;
+                left: -25px;
+                top: 50%;
+                font-size: 18px;
+                color: #ECA740;
+                transform: translateY(-50%);
+            }
 
             li {
                 gap: 10px;
@@ -9649,6 +9659,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
                 width: 100%;
                 height: 147px;
                 color: #878E95;
+                font-size: 16px;
                 max-width: 420px;
                 padding: 12px 24px;
                 font-style: italic;
@@ -10066,6 +10077,20 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             border: 2px solid #ECA740;
         }
 
+        .modal {
+            .carousel-indicators .slider-btn {
+                box-sizing: unset !important;
+                width: 11px !important;
+                height: 11px !important;
+                border-radius: 50% !important;
+                background: #F3F7FA !important;
+            }
+
+            .carousel-indicators .active {
+                border: 2px solid #6598CC;
+            }
+        }
+
         .review-container {
             justify-content: start;
         }
@@ -10173,7 +10198,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
             .block {
                 width: 100%;
-                max-width: 240px;
+                max-width: 235px;
                 height: 66px;
                 border-radius: 9px;
                 display: flex;
@@ -10286,12 +10311,16 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 
 
         button {
-            width: 46px;
-            height: 46px;
+            width: 40px;
+            height: 40px;
             opacity: 1;
             top: calc(50% - 20px);
             border-radius: 4px;
             background: #F3F7FA;
+
+            img {
+                width: 30px;
+            }
 
             @media(max-width: 768px) {
                 display: none !important;
