@@ -9090,6 +9090,14 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         }
     }
 
+    .container1 .our-help-list {
+        margin: 0;
+
+        li::before {
+            display: none;
+        }
+    }
+
     .block {
         height: 100%;
         border-radius: 9px;
